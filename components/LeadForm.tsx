@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
+import PhoneInputWrapper from "./PhoneInputWrapper";
 
 const SEGMENTOS = ["Saúde", "Educação", "Imóveis", "Finanças", "E-commerce", "Outro"];
 const VERBAS = ["Menos de R$3k", "R$3k–R$10k", "R$10k–R$30k", "Acima de R$30k"];
@@ -70,10 +71,11 @@ export default function LeadForm() {
     <form
       onSubmit={handleSubmit}
       className="w-full max-w-lg mx-auto space-y-4 px-4 sm:px-0"
+      suppressHydrationWarning
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="nome" className={labelClass}>Nome completo *</label>
+          <label htmlFor="nome" className={labelClass} suppressHydrationWarning>Nome completo *</label>
           <input
             id="nome"
             type="text"
@@ -83,30 +85,20 @@ export default function LeadForm() {
             onChange={handleChange}
             placeholder="João Silva"
             className={inputClass}
+            suppressHydrationWarning
           />
         </div>
         <div>
-          <label htmlFor="whatsapp" className={labelClass}>WhatsApp *</label>
-          <div className="flex">
-            <span className="flex items-center gap-1.5 px-3 rounded-l-xl bg-[rgba(255,255,255,0.05)] border border-r-0 border-[rgba(147,51,234,0.3)] text-sm text-white/70 flex-shrink-0">
-              🇧🇷 +55
-            </span>
-            <input
-              id="whatsapp"
-              type="tel"
-              name="whatsapp"
-              required
-              value={form.whatsapp}
-              onChange={handleChange}
-              placeholder="(11) 99999-9999"
-              className={inputClass + " rounded-l-none border-l-0"}
-            />
-          </div>
+          <label htmlFor="whatsapp" className={labelClass} suppressHydrationWarning>WhatsApp *</label>
+          <PhoneInputWrapper
+            value={form.whatsapp}
+            onChange={(value) => setForm((prev) => ({ ...prev, whatsapp: value }))}
+          />
         </div>
       </div>
 
       <div>
-        <label htmlFor="email" className={labelClass}>E-mail *</label>
+        <label htmlFor="email" className={labelClass} suppressHydrationWarning>E-mail *</label>
         <input
           id="email"
           type="email"
@@ -116,12 +108,13 @@ export default function LeadForm() {
           onChange={handleChange}
           placeholder="joao@empresa.com"
           className={inputClass}
+          suppressHydrationWarning
         />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="segmento" className={labelClass}>Segmento/nicho *</label>
+          <label htmlFor="segmento" className={labelClass} suppressHydrationWarning>Segmento/nicho *</label>
           <select
             id="segmento"
             name="segmento"
@@ -129,6 +122,7 @@ export default function LeadForm() {
             value={form.segmento}
             onChange={handleChange}
             className={inputClass}
+            suppressHydrationWarning
           >
             <option value="" disabled>Selecione...</option>
             {SEGMENTOS.map((s) => (
@@ -137,7 +131,7 @@ export default function LeadForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="verba" className={labelClass}>Verba mensal em tráfego *</label>
+          <label htmlFor="verba" className={labelClass} suppressHydrationWarning>Verba mensal em tráfego *</label>
           <select
             id="verba"
             name="verba"
@@ -145,6 +139,7 @@ export default function LeadForm() {
             value={form.verba}
             onChange={handleChange}
             className={inputClass}
+            suppressHydrationWarning
           >
             <option value="" disabled>Selecione...</option>
             {VERBAS.map((v) => (
@@ -155,7 +150,7 @@ export default function LeadForm() {
       </div>
 
       <div>
-        <label htmlFor="desafio" className={labelClass}>Maior desafio atual</label>
+        <label htmlFor="desafio" className={labelClass} suppressHydrationWarning>Maior desafio atual</label>
         <textarea
           id="desafio"
           name="desafio"
@@ -164,6 +159,7 @@ export default function LeadForm() {
           rows={3}
           placeholder="Descreva brevemente o que está travando seu crescimento..."
           className={inputClass + " resize-none"}
+          suppressHydrationWarning
         />
       </div>
 

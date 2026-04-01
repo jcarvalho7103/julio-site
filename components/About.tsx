@@ -25,7 +25,7 @@ export default function About() {
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-5 -right-5 glass-card rounded-2xl px-5 py-3 border border-[rgba(147,51,234,0.4)]">
-                <span className="text-white font-bold text-sm block">8+ anos</span>
+                <span className="text-white font-bold text-sm block">4+ anos</span>
                 <span className="text-violet-300/60 text-xs">em performance</span>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "react-phone-input-2/lib/style.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -214,7 +215,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <head>
+      <body>
+        <a
+          href="#conteudo-principal"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#9333ea] focus:text-white focus:rounded-lg"
+        >
+          Ir para o conteúdo principal
+        </a>
+        {children}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
@@ -231,15 +239,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
         />
-      </head>
-      <body>
-        <a
-          href="#conteudo-principal"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#9333ea] focus:text-white focus:rounded-lg"
-        >
-          Ir para o conteúdo principal
-        </a>
-        {children}
       </body>
     </html>
   );

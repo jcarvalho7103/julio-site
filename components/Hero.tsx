@@ -45,17 +45,7 @@ export default function Hero() {
                 Quero meu diagnóstico gratuito
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a
-                href="#resultados"
-                className="flex items-center gap-2 px-7 py-3.5 rounded-full border border-[rgba(147,51,234,0.35)] text-violet-200 hover:text-white hover:border-[rgba(147,51,234,0.6)] transition-all duration-200 text-sm font-medium"
-              >
-                Ver casos reais
-              </a>
             </div>
-
-            <p className="text-violet-300/50 text-xs lg:text-left text-center">
-              Vagas limitadas por semana
-            </p>
           </div>
 
           {/* Right: photo */}
@@ -80,10 +70,6 @@ export default function Hero() {
               <div className="absolute -bottom-4 -left-4 glass-card rounded-2xl px-5 py-3 border border-[rgba(147,51,234,0.4)]">
                 <span className="text-white font-bold text-sm block">+50 marcas</span>
                 <span className="text-violet-300/60 text-xs">escaladas</span>
-              </div>
-              <div className="absolute -top-4 -right-4 glass-card rounded-2xl px-4 py-2.5 border border-[rgba(147,51,234,0.4)]">
-                <span className="gradient-text font-black text-lg block leading-none">3x</span>
-                <span className="text-violet-300/60 text-xs">ROAS médio</span>
               </div>
             </div>
           </div>
