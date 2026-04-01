@@ -8,47 +8,44 @@ interface OrbitingDotProps {
 }
 
 /**
- * Percorre a borda exata de um botão pill (rounded-full).
- * O contorno de um pill é: reta-superior → semicírculo-direito → reta-inferior → semicírculo-esquerdo.
+ * 4 segmentos em ordem:
+ *  A) reta superior:       (r, 0)   → (W-r, 0)     comprimento = W-H
+ *  B) semicírculo direito: (W-r, 0) → (W-r, H)     comprimento = π*r
+ *  C) reta inferior:       (W-r, H) → (r, H)        comprimento = W-H
+ *  D) semicírculo esquerdo:(r, H)   → (r, 0)        comprimento = π*r
  */
 function getPillPoint(progress: number, W: number, H: number): { x: number; y: number } {
-  const r = H / 2;           // raio dos semicírculos
-  const straight = W - H;   // comprimento total das retas (superior + inferior)
-  const arcLen = Math.PI * r; // comprimento de cada semicírculo
+  const r = H / 2;
+  const seg = W - H;          // comprimento de cada reta
+  const arc = Math.PI * r;    // comprimento de cada semicírculo
+  const total = 2 * seg + 2 * arc;
+  const d = ((progress % 1) + 1) % 1 * total;
 
-  const totalLen = straight + arcLen + straight + arcLen;
-  const d = ((progress % 1) + 1) % 1 * totalLen;
+  const endA = seg;
+  const endB = seg + arc;
+  const endC = seg + arc + seg;
+  // endD = total
 
-  // Segmento 1: reta superior — da esquerda (r,0) para a direita (W-r,0)
-  const s1 = straight / 2;
-  // Segmento 2: semicírculo direito — de (W-r,0) passando por (W,r) até (W-r,H)
-  const s2 = s1 + arcLen;
-  // Segmento 3: reta inferior — da direita (W-r,H) para a esquerda (r,H)
-  const s3 = s2 + straight / 2 + straight / 2;
-  // Segmento 4: semicírculo esquerdo — de (r,H) passando por (0,r) até (r,0)
-  const s4 = s3 + arcLen;
-
-  if (d < s1) {
-    // Reta superior: esquerda → direita, y = 0
-    const t = d / s1;
-    return { x: r + t * (W - H), y: 0 };
-  } else if (d < s2) {
-    // Semicírculo direito: centro em (W-r, r), ângulo de -π/2 a +π/2
-    const t = (d - s1) / arcLen;
+  if (d <= endA) {
+    // A) reta superior: esquerda → direita
+    const t = d / seg;
+    return { x: r + t * seg, y: 0 };
+  }
+  if (d <= endB) {
+    // B) semicírculo direito: -90° → +90° (sentido horário)
+    const t = (d - endA) / arc;
     const angle = -Math.PI / 2 + t * Math.PI;
     return { x: (W - r) + r * Math.cos(angle), y: r + r * Math.sin(angle) };
-  } else if (d < s3) {
-    // Reta inferior: direita → esquerda, y = H
-    const t = (d - s2) / (straight);
-    return { x: (W - r) - t * (W - H), y: H };
-  } else if (d < s4) {
-    // Semicírculo esquerdo: centro em (r, r), ângulo de +π/2 a +3π/2
-    const t = (d - s3) / arcLen;
-    const angle = Math.PI / 2 + t * Math.PI;
-    return { x: r + r * Math.cos(angle), y: r + r * Math.sin(angle) };
   }
-
-  return { x: r, y: 0 };
+  if (d <= endC) {
+    // C) reta inferior: direita → esquerda
+    const t = (d - endB) / seg;
+    return { x: (W - r) - t * seg, y: H };
+  }
+  // D) semicírculo esquerdo: +90° → +270° (sentido horário)
+  const t = (d - endC) / arc;
+  const angle = Math.PI / 2 + t * Math.PI;
+  return { x: r + r * Math.cos(angle), y: r + r * Math.sin(angle) };
 }
 
 export default function OrbitingDot({
