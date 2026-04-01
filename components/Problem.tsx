@@ -5,19 +5,19 @@ const problems = [
     icon: AlertCircle,
     title: "Tráfego rodando. Negócio parado.",
     description:
-      "Você olha pro gerenciador e as campanhas estão no verde. Mas a receita não cresce. O problema nunca foi o anúncio. É o que acontece depois do clique.",
+      "Você olha pro gerenciador e as campanhas estão no verde. Mas a receita não cresce. Lead chega. Ninguém sabe de onde veio. Ninguém sabe o que aconteceu com ele depois. O problema nunca foi o anúncio. É tudo que vem depois do clique.",
   },
   {
     icon: BarChart2,
-    title: "Dados que não decidem nada",
+    title: "Pixel vendo menos da metade do que acontece",
     description:
-      "CPM, CTR, CPC, tudo bonitinho no relatório. Mas ninguém sabe dizer qual campanha gerou faturamento de verdade. Sem rastreamento preciso, você está chutando com dinheiro real.",
+      "iOS 14, navegação privada e bloqueadores de cookie derrubaram o rastreamento padrão. Você acha que está vendo 100% das conversões. Está vendo menos da metade. O algoritmo otimiza com dado errado. Você aumenta verba e o resultado não melhora porque o sinal que chega na plataforma é ruim.",
   },
   {
     icon: Cpu,
-    title: "IA nos seus concorrentes, não em você",
+    title: "CRM que não trabalha pra ninguém",
     description:
-      "Automação de qualificação, segmentação por comportamento, criativos gerados por IA: isso já está rodando. Só não está rodando na sua operação.",
+      "Lead entra no CRM e para. Sem etapa definida, sem automação, sem régua de nutrição. O time comercial qualifica na mão, um por um. Lead frio some sem follow-up. E nenhuma dessas informações volta para as plataformas de tráfego pra fechar o ciclo de atribuição.",
   },
 ];
 

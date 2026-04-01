@@ -6,28 +6,28 @@ const steps = [
     step: "01",
     title: "A gente encontra onde está sangrando",
     description:
-      "Antes de tocar em qualquer campanha, eu olho para o funil inteiro. Rastreamento, atribuição, jornada do lead. Na maioria dos projetos, o dinheiro está sendo perdido num ponto que ninguém estava olhando.",
+      "Antes de tocar em campanha, eu olho o funil inteiro. Taxa de correspondência do pixel, eventos que somem no meio do caminho, CRM sem etapa definida, lead chegando no comercial sem qualificação nenhuma. O buraco costuma estar num desses pontos. E está custando dinheiro todo dia.",
   },
   {
     icon: Layers,
     step: "02",
-    title: "Construímos a base que faltava",
+    title: "Montamos a infraestrutura que a maioria pula",
     description:
-      "Pixel configurado do jeito certo. Automações que qualificam o lead antes de chegar no time. Dashboard que mostra o que importa, não 40 métricas de vaidade. Isso não é complexo. Só nunca foi feito.",
+      "CAPI configurado server-side para o algoritmo receber sinal de qualidade. CRM com funil real, não pasta de contato. Automações que qualificam o lead por comportamento antes de chegar no time de vendas. GTM com rastreamento de conversão offline integrado ao CRM. Isso não é sofisticado. É o básico que 90% dos negócios nunca fez.",
   },
   {
     icon: Zap,
     step: "03",
     title: "Aí sim o tráfego entra",
     description:
-      "Com a estrutura no lugar, cada real investido tem para onde ir. Criativos testados com método. Públicos segmentados por comportamento real. CPL cai porque o sistema está trabalhando, não você.",
+      "Com sinal limpo chegando nas plataformas e o funil estruturado, o algoritmo começa a trabalhar do jeito certo. Públicos segmentados por comportamento real, não suposição. Criativos testados com método. CPL cai porque o sistema está otimizando com dado verdadeiro, não com o que sobrou depois do bloqueador de cookie.",
   },
   {
     icon: TrendingUp,
     step: "04",
     title: "O sistema escala sem você escalar o esforço",
     description:
-      "Quando tudo está conectado, dado, IA, tráfego e tecnologia, o negócio cresce sem que você precise dobrar o time ou o orçamento. Esse é o ponto que a maioria nunca chega. É onde a gente começa.",
+      "Quando dado, CRM, automações e tráfego estão conectados, o negócio cresce sem dobrar time ou orçamento. Lead qualificado chega no comercial com contexto completo. Nenhum contato some sem follow-up. O gerenciador otimiza com conversão real. Esse é o ponto que a maioria nunca chega. É onde a gente começa.",
   },
 ];
 
