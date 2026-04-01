@@ -12,7 +12,7 @@ const faqs = [
     a: "Negócios que já investem em tráfego mas não estão escalando. Infoprodutores, prestadores de serviço, incorporadoras, healthtechs, influencers com produto próprio. O setor não importa tanto. O que importa é que você já tem algo funcionando e quer crescer com inteligência, não com mais verba.",
   },
   {
-    q: "O que é o Método C?",
+    q: "O que é o Método CTR?",
     a: "É o framework que criei ao longo de mais de 50 projetos. Ele organiza o crescimento em camadas: primeiro a fundação de dados, depois a tecnologia, depois o tráfego, depois a escala. Cada fase tem entregáveis claros. Não tem fase de estudo que dura meses.",
   },
   {
