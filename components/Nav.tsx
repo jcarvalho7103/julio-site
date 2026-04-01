@@ -1,10 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -12,11 +15,12 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const prefix = isHome ? "" : "/";
   const links = [
-    { label: "Como funciona", href: "/#como-funciona" },
-    { label: "Resultados", href: "/#resultados" },
-    { label: "Sobre", href: "/#sobre" },
-    { label: "FAQ", href: "/#faq" },
+    { label: "Como funciona", href: `${prefix}#como-funciona` },
+    { label: "Resultados", href: `${prefix}#resultados` },
+    { label: "Sobre", href: `${prefix}#sobre` },
+    { label: "FAQ", href: `${prefix}#faq` },
   ];
 
   return (
