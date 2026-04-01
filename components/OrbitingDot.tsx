@@ -54,7 +54,7 @@ export default function OrbitingDot({
   color = "#9333ea",
 }: OrbitingDotProps) {
   const dotRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
   const startRef = useRef<number | null>(null);
 
@@ -64,12 +64,27 @@ export default function OrbitingDot({
       const elapsed = (timestamp - startRef.current) / 1000;
       const progress = (elapsed % duration) / duration;
 
-      const container = containerRef.current;
       const dot = dotRef.current;
-      if (!container || !dot) return;
+      const wrap = wrapRef.current;
+      if (!dot || !wrap) {
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
 
-      const W = container.offsetWidth;
-      const H = container.offsetHeight;
+      // Usa as dimensões do elemento pai (o botão)
+      const parent = wrap.parentElement;
+      if (!parent) {
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      const W = parent.offsetWidth;
+      const H = parent.offsetHeight;
+
+      if (W === 0 || H === 0) {
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
 
       const { x, y } = getPillPoint(progress, W, H);
 
@@ -85,8 +100,8 @@ export default function OrbitingDot({
 
   return (
     <div
-      ref={containerRef}
-      className="absolute -inset-0 pointer-events-none z-20 rounded-full"
+      ref={wrapRef}
+      className="absolute inset-0 pointer-events-none z-20"
     >
       <div
         ref={dotRef}
