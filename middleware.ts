@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { jwtVerify } from "jose";
 
-export async function middleware(req: NextRequest) {
+// Middleware roda no Edge Runtime — só verifica presença do cookie.
+// A validação completa do JWT é feita no Server Component (app/admin/page.tsx).
+export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (pathname === "/admin/login") return NextResponse.next();
@@ -11,13 +12,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/admin/login", req.url));
   }
 
-  try {
-    const secret = new TextEncoder().encode(process.env.ADMIN_SECRET!);
-    await jwtVerify(token, secret);
-    return NextResponse.next();
-  } catch {
-    return NextResponse.redirect(new URL("/admin/login", req.url));
-  }
+  return NextResponse.next();
 }
 
 export const config = {
