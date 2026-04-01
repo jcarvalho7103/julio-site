@@ -87,16 +87,21 @@ export default function LeadForm() {
         </div>
         <div>
           <label htmlFor="whatsapp" className={labelClass}>WhatsApp *</label>
-          <input
-            id="whatsapp"
-            type="tel"
-            name="whatsapp"
-            required
-            value={form.whatsapp}
-            onChange={handleChange}
-            placeholder="(11) 99999-9999"
-            className={inputClass}
-          />
+          <div className="flex">
+            <span className="flex items-center gap-1.5 px-3 rounded-l-xl bg-[rgba(255,255,255,0.05)] border border-r-0 border-[rgba(147,51,234,0.3)] text-sm text-white/70 flex-shrink-0">
+              🇧🇷 +55
+            </span>
+            <input
+              id="whatsapp"
+              type="tel"
+              name="whatsapp"
+              required
+              value={form.whatsapp}
+              onChange={handleChange}
+              placeholder="(11) 99999-9999"
+              className={inputClass + " rounded-l-none border-l-0"}
+            />
+          </div>
         </div>
       </div>
 

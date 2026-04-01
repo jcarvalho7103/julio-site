@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#0d0118] text-white">
+    <main id="conteudo-principal" className="bg-[#0d0118] text-white">
       <Nav />
       <Hero />
       <Clients />
@@ -25,6 +25,3 @@ export default function Home() {
     </main>
   );
 }
-
-// Testimonials.tsx foi criado mas propositalmente omitido da página
-// Adicione quando tiver depoimentos reais dos clientes
