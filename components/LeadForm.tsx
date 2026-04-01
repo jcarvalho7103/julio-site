@@ -11,7 +11,6 @@ export default function LeadForm() {
   const [form, setForm] = useState({
     nome: "",
     whatsapp: "",
-    email: "",
     segmento: "",
     verba: "",
     desafio: "",
@@ -95,21 +94,6 @@ export default function LeadForm() {
             onChange={(value) => setForm((prev) => ({ ...prev, whatsapp: value }))}
           />
         </div>
-      </div>
-
-      <div>
-        <label htmlFor="email" className={labelClass} suppressHydrationWarning>E-mail *</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          required
-          value={form.email}
-          onChange={handleChange}
-          placeholder="joao@empresa.com"
-          className={inputClass}
-          suppressHydrationWarning
-        />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
