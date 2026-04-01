@@ -7,7 +7,6 @@ const clients = [
   { name: "Anthony Miranda",     category: "Educação Financeira",                    photo: "/clients/anthonymirandaoficial.jpg" },
   { name: "André Froede",        category: "Wellness",                               photo: "/clients/andrefroedoficial.jpg" },
   { name: "Edwards Miranda",     category: "Educação Financeira",                    photo: "/clients/euedwardsmiranda.jpg" },
-  { name: "Junior Neves",        category: "Educação em Growth e Negócios Digitais", photo: "/clients/jrdasneves.jpg" },
   { name: "Dra. Elisiane",       category: "Educação Financeira",                    photo: "/clients/doutoraelisiane.jpg" },
   { name: "Coloplast",           category: "MedTech",                                photo: "/clients/coloplastwoundcare.jpg" },
   { name: "Rev3 Incorporadora",  category: "Imóveis",                                photo: "/clients/rev3incorporadora.jpg" },
