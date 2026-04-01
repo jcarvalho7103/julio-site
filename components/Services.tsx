@@ -95,47 +95,50 @@ export default function Services() {
           Cada peça conectada à próxima. CRM, automações, rastreamento, IA e integração de ferramentas — tudo rodando junto, não em paralelo.
         </p>
 
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {services.map((s, i) => (
             <div
               key={i}
-              className="glass-card rounded-2xl p-8 md:p-10 group hover:border-[rgba(147,51,234,0.5)] transition-all duration-300"
+              className="glass-card rounded-2xl p-6 md:p-8 lg:p-10 group hover:border-[rgba(147,51,234,0.5)] transition-all duration-300"
             >
               {/* Header */}
-              <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
-                <div className="flex-shrink-0 flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#9333ea]/30 to-[#d946ef]/20 border border-[rgba(147,51,234,0.3)] flex items-center justify-center group-hover:from-[#9333ea]/50 transition-all">
-                    <s.icon size={26} className="text-[#d946ef]" />
+              <div className="flex flex-col gap-4 mb-6 md:mb-8">
+                {/* Ícone + tag sempre em linha */}
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-[#9333ea]/30 to-[#d946ef]/20 border border-[rgba(147,51,234,0.3)] flex items-center justify-center flex-shrink-0 group-hover:from-[#9333ea]/50 transition-all">
+                    <s.icon size={22} className="text-[#d946ef] md:hidden" />
+                    <s.icon size={26} className="text-[#d946ef] hidden md:block" />
                   </div>
                   <span className="text-[#9333ea] text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-[rgba(147,51,234,0.3)] bg-[rgba(147,51,234,0.08)]">
                     {s.tag}
                   </span>
                 </div>
-                <div>
-                  <h3 className="text-white font-black text-xl md:text-2xl mb-2 leading-snug">
+                {/* Título + descrição abaixo do ícone em tablet/mobile, lado a lado só em lg */}
+                <div className="lg:pl-0">
+                  <h3 className="text-white font-black text-lg md:text-xl lg:text-2xl mb-2 leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-violet-200/65 text-sm md:text-base leading-relaxed">
+                  <p className="text-violet-200/65 text-sm md:text-[0.9rem] lg:text-base leading-relaxed">
                     {s.description}
                   </p>
                 </div>
               </div>
 
               {/* Divider */}
-              <div className="border-t border-[rgba(147,51,234,0.15)] mb-8" />
+              <div className="border-t border-[rgba(147,51,234,0.15)] mb-6 md:mb-8" />
 
-              {/* Items */}
-              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+              {/* Items — 1 col mobile, 2 col tablet e acima */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 md:gap-3 mb-6 md:mb-8">
                 {s.items.map((item, j) => (
                   <div key={j} className="flex items-start gap-3">
-                    <div className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#d946ef]" />
+                    <div className="mt-[7px] flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#d946ef]" />
                     <span className="text-violet-200/70 text-sm leading-snug">{item}</span>
                   </div>
                 ))}
               </div>
 
               {/* Highlight quote */}
-              <div className="rounded-xl bg-[rgba(147,51,234,0.08)] border border-[rgba(147,51,234,0.2)] px-6 py-4">
+              <div className="rounded-xl bg-[rgba(147,51,234,0.08)] border border-[rgba(147,51,234,0.2)] px-5 md:px-6 py-4">
                 <p className="text-violet-200 text-sm font-medium italic leading-relaxed">
                   &ldquo;{s.highlight}&rdquo;
                 </p>
