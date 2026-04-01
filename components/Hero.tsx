@@ -52,7 +52,7 @@ export default function Hero() {
 
           {/* Right: photo */}
           <div className="relative flex justify-center lg:justify-end items-center order-2">
-            <div className="relative w-72 sm:w-80 lg:w-[420px] h-72 sm:h-80 lg:h-[420px]">
+            <div className="relative w-72 sm:w-80 lg:w-[420px]" style={{ aspectRatio: "1/1" }}>
               {/* Glow behind photo */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#9333ea]/30 to-[#d946ef]/15 blur-3xl scale-105" />
               {/* Photo */}
@@ -62,7 +62,7 @@ export default function Hero() {
                   alt="Julio Carvalho, Estrategista de Crescimento com IA e Dados"
                   fill
                   sizes="(max-width: 768px) 320px, (max-width: 1024px) 320px, 420px"
-                  className="object-cover object-center"
+                  className="object-cover object-top"
                   priority
                 />
                 {/* Bottom fade */}
