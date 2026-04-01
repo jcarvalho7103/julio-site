@@ -32,7 +32,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-base md:text-lg text-violet-200/70 max-w-xl mb-8 leading-relaxed lg:mx-0 mx-auto">
-              Maíra Cardi, Afya e Carolina Caribé tinham o mesmo problema que você. Tráfego rodando. Resultado abaixo do esperado. A diferença foi o sistema que construímos.
+              Maíra Cardi, Afya e Keila Neves tinham o mesmo problema que você. Tráfego rodando. Resultado abaixo do esperado. A diferença foi o sistema que construímos.
             </p>
 
             {/* CTAs */}

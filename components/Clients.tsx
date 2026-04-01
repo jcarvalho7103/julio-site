@@ -3,11 +3,10 @@ import Image from "next/image";
 const clients = [
   { name: "Afya",                category: "Educação Médica",                        photo: "/clients/afya.oficial.jpg" },
   { name: "Maíra Cardi",         category: "Wellness",                               photo: "/clients/mairacardi.jpg" },
-  { name: "Carolina Caribé",     category: "Educação Imobiliária",                   photo: "/clients/carolinacaribeoficial.jpg" },
+  { name: "Keila Neves",          category: "Educação em Marketing Digital",          photo: "/clients/keilaneves91.jpg" },
   { name: "Anthony Miranda",     category: "Educação Financeira",                    photo: "/clients/anthonymirandaoficial.jpg" },
   { name: "André Froede",        category: "Wellness",                               photo: "/clients/andrefroedoficial.jpg" },
   { name: "Edwards Miranda",     category: "Educação Financeira",                    photo: "/clients/euedwardsmiranda.jpg" },
-  { name: "Keila Neves",         category: "Educação em Marketing Digital",          photo: "/clients/keilaneves91.jpg" },
   { name: "JR das Neves",        category: "Educação em Growth e Negócios Digitais", photo: "/clients/jrdasneves.jpg" },
   { name: "Dra. Elisiane",       category: "Educação Financeira",                    photo: "/clients/doutoraelisiane.jpg" },
   { name: "Coloplast",           category: "MedTech",                                photo: "/clients/coloplastwoundcare.jpg" },
