@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import OrbitingDot from "./OrbitingDot";
 
 export default function Hero() {
   return (
@@ -40,8 +41,9 @@ export default function Hero() {
               <a
                 href="#cta"
                 id="hero-cta"
-                className="group flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm transition-all duration-200 shadow-[0_0_28px_rgba(147,51,234,0.5)] hover:shadow-[0_0_38px_rgba(147,51,234,0.7)] hover:scale-[1.02]"
+                className="relative group flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm transition-all duration-200 shadow-[0_0_28px_rgba(147,51,234,0.5)] hover:shadow-[0_0_38px_rgba(147,51,234,0.7)] hover:scale-[1.02]"
               >
+                <OrbitingDot duration={3} size={8} color="#d946ef" />
                 Quero meu diagnóstico gratuito
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
