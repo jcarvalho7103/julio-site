@@ -55,7 +55,7 @@ export default function About() {
                 href="#cta"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold transition-all duration-200 shadow-[0_0_25px_rgba(147,51,234,0.4)] hover:shadow-[0_0_35px_rgba(147,51,234,0.6)]"
               >
-                Quero meu diagnóstico gratuito
+                Quero meu diagnóstico
               </a>
             </div>
           </div>
