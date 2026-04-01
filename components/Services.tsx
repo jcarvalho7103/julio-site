@@ -64,19 +64,35 @@ const services = [
   },
   {
     icon: Workflow,
-    tag: "ManyChat + n8n",
-    title: "Automações de conversação com ManyChat e n8n",
+    tag: "ManyChat",
+    title: "Automações de conversação com ManyChat",
     description:
-      "ManyChat para capturar, engajar e distribuir leads direto no Instagram e Messenger. n8n para conectar tudo isso com o CRM, o WhatsApp, a planilha, o Slack e qualquer sistema que você já usa. Sem código customizado que quebra na primeira atualização. Sem depender de dev pra cada ajuste.",
+      "ManyChat transforma o Instagram e o Messenger em canal de aquisição ativo. Lead comenta no post, manda uma palavra-chave ou clica no botão do anúncio — o fluxo começa na hora, captura o contato e distribui para o funil certo. Sem depender de ninguém monitorar a caixa de entrada.",
     items: [
-      "Fluxos de DM no Instagram com captura de lead por palavra-chave ou comentário",
+      "Fluxos de DM automáticos por palavra-chave, comentário ou clique em anúncio",
+      "Captura de nome, email e telefone direto na conversa do Instagram ou Messenger",
       "Campanhas de broadcast segmentadas por tag, interesse e estágio no funil",
-      "Integração ManyChat → CRM via n8n com enriquecimento automático de dados",
-      "Webhooks e APIs conectando ferramentas sem plataformas intermediárias caras",
-      "Fluxos de reativação de lead frio via sequência WhatsApp + email + DM",
-      "Notificações internas em tempo real para o time via Slack, Telegram ou email",
+      "Sequências de nutrição com mensagens espaçadas por comportamento do contato",
+      "Integração com CRM para sincronizar contatos e histórico de interação",
+      "Fluxos de reativação de lead frio com gatilho por tempo de inatividade",
     ],
-    highlight: "Se duas ferramentas que você usa não conversam, tem trabalho manual no meio. Isso é custo escondido.",
+    highlight: "Comentário em post é intenção de compra. A maioria deixa isso passar sem responder.",
+  },
+  {
+    icon: GitBranch,
+    tag: "n8n",
+    title: "Integrações e automações avançadas com n8n",
+    description:
+      "n8n é o sistema nervoso da operação. Conecta CRM, WhatsApp, planilhas, plataformas de tráfego, ferramentas de IA e qualquer sistema com API — sem código que quebra na primeira atualização e sem pagar por cada execução. Quando uma ferramenta precisa avisar outra, o n8n faz isso acontecer.",
+    items: [
+      "Webhooks e APIs conectando qualquer par de ferramentas que você já usa",
+      "Enriquecimento automático de lead ao entrar no CRM (empresa, cargo, LinkedIn)",
+      "Notificações em tempo real para o time via Slack, Telegram ou email com contexto completo",
+      "Fluxos de dados entre plataformas de tráfego, CRM e dashboard sem exportar CSV",
+      "Automações de follow-up multicanal: WhatsApp + email + DM em sequência",
+      "Integrações com LLMs para classificar, resumir e pontuar leads automaticamente",
+    ],
+    highlight: "Cada transferência manual de dado entre ferramentas é risco de erro e tempo perdido.",
   },
 ];
 
