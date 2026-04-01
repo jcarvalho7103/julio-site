@@ -1,9 +1,7 @@
 export const dynamic = "force-dynamic";
 
-import { supabaseAdmin } from "@/lib/supabase";
 import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
-import { jwtVerify } from "jose";
+import { createSupabaseServerClient, getSupabaseAdmin } from "@/lib/supabase";
 import LogoutButton from "./LogoutButton";
 
 interface Lead {
@@ -18,7 +16,7 @@ interface Lead {
 }
 
 async function getLeads(): Promise<Lead[]> {
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await getSupabaseAdmin()
     .from("leads")
     .select("*")
     .order("created_at", { ascending: false });
@@ -28,17 +26,10 @@ async function getLeads(): Promise<Lead[]> {
 }
 
 export default async function AdminPage() {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("admin_token")?.value;
+  const supabase = await createSupabaseServerClient();
+  const { data: { session } } = await supabase.auth.getSession();
 
-  if (!token) redirect("/admin/login");
-
-  try {
-    const secret = new TextEncoder().encode(process.env.ADMIN_SECRET!);
-    await jwtVerify(token, secret);
-  } catch {
-    redirect("/admin/login");
-  }
+  if (!session) redirect("/admin/login");
 
   const leads = await getLeads();
 
@@ -48,7 +39,9 @@ export default async function AdminPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-black">Leads</h1>
-            <p className="text-violet-300/60 text-sm mt-1">{leads.length} lead{leads.length !== 1 ? "s" : ""} coletado{leads.length !== 1 ? "s" : ""}</p>
+            <p className="text-violet-300/60 text-sm mt-1">
+              {leads.length} lead{leads.length !== 1 ? "s" : ""} coletado{leads.length !== 1 ? "s" : ""}
+            </p>
           </div>
           <LogoutButton />
         </div>

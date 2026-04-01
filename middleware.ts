@@ -1,18 +1,41 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createServerClient } from "@supabase/ssr";
 
-// Middleware roda no Edge Runtime — só verifica presença do cookie.
-// A validação completa do JWT é feita no Server Component (app/admin/page.tsx).
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  if (pathname === "/admin/login") return NextResponse.next();
+  const res = NextResponse.next();
 
-  const token = req.cookies.get("admin_token")?.value;
-  if (!token) {
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return req.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            req.cookies.set(name, value);
+            res.cookies.set(name, value, options);
+          });
+        },
+      },
+    }
+  );
+
+  const { data: { session } } = await supabase.auth.getSession();
+
+  if (pathname === "/admin/login") {
+    if (session) return NextResponse.redirect(new URL("/admin", req.url));
+    return res;
+  }
+
+  if (!session) {
     return NextResponse.redirect(new URL("/admin/login", req.url));
   }
 
-  return NextResponse.next();
+  return res;
 }
 
 export const config = {

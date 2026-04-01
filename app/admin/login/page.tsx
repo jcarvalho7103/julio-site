@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function AdminLogin() {
   const router = useRouter();
-  const [form, setForm] = useState({ user: "", pass: "" });
+  const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -22,6 +22,7 @@ export default function AdminLogin() {
 
     if (res.ok) {
       router.push("/admin");
+      router.refresh();
     } else {
       const data = await res.json();
       setError(data.error || "Credenciais inválidas.");
@@ -36,13 +37,13 @@ export default function AdminLogin() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-violet-200/70 mb-1.5">
-              Usuário
+              E-mail
             </label>
             <input
-              type="text"
+              type="email"
               required
-              value={form.user}
-              onChange={(e) => setForm((p) => ({ ...p, user: e.target.value }))}
+              value={form.email}
+              onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-violet-500/30 text-white focus:outline-none focus:border-violet-500 transition-colors"
             />
           </div>
@@ -53,8 +54,8 @@ export default function AdminLogin() {
             <input
               type="password"
               required
-              value={form.pass}
-              onChange={(e) => setForm((p) => ({ ...p, pass: e.target.value }))}
+              value={form.password}
+              onChange={(e) => setForm((p) => ({ ...p, password: e.target.value }))}
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-violet-500/30 text-white focus:outline-none focus:border-violet-500 transition-colors"
             />
           </div>
