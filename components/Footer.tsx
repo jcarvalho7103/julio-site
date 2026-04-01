@@ -12,11 +12,11 @@ export default function Footer() {
             <a href="#" className="text-white font-black text-lg tracking-tight">
               Julio<span className="gradient-text">Carvalho</span>
             </a>
-            <p className="text-violet-300/40 text-xs mt-1">Estrategista de Crescimento</p>
+            <p className="text-violet-300/60 text-xs mt-1">Estrategista de Crescimento</p>
           </div>
 
           {/* Nav */}
-          <nav className="flex items-center gap-8 text-sm text-violet-300/50">
+          <nav aria-label="Links do rodapé" className="flex items-center gap-4 lg:gap-8 text-sm text-violet-300/50">
             <a href="#como-funciona" className="hover:text-white transition-colors">Como funciona</a>
             <a href="#resultados" className="hover:text-white transition-colors">Resultados</a>
             <a href="#sobre" className="hover:text-white transition-colors">Sobre</a>

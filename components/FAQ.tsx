@@ -34,9 +34,12 @@ export default function FAQ() {
         <p className="text-center text-xs text-violet-400 font-semibold tracking-widest uppercase mb-4">
           Dúvidas frequentes
         </p>
-        <h2 className="text-3xl md:text-4xl font-black text-center text-white mb-16 tracking-tight">
-          Perguntas e respostas
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center text-white mb-4 tracking-tight">
+          Antes de preencher, leia isso
         </h2>
+        <p className="text-center text-violet-200/60 max-w-xl mx-auto mb-12 text-lg">
+          O que os clientes queriam saber antes de começar.
+        </p>
 
         <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((f, i) => (
@@ -50,6 +53,8 @@ export default function FAQ() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-7 py-5 text-left group"
                 aria-expanded={open === i}
+                aria-controls={`faq-answer-${i}`}
+                id={`faq-question-${i}`}
               >
                 <span className="text-white font-semibold text-sm md:text-base pr-4 group-hover:text-violet-200 transition-colors">
                   {f.q}
@@ -61,30 +66,21 @@ export default function FAQ() {
                   }`}
                 />
               </button>
-              {open === i && (
+              <div
+                id={`faq-answer-${i}`}
+                role="region"
+                aria-labelledby={`faq-question-${i}`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  open === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
                 <div className="px-7 pb-6 text-violet-200/65 text-sm leading-relaxed border-t border-[rgba(147,51,234,0.15)] pt-4">
                   {f.a}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
-
-        {/* FAQ Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: faqs.map((f) => ({
-                "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
-              })),
-            }),
-          }}
-        />
       </div>
     </section>
   );

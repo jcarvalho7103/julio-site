@@ -1,4 +1,3 @@
-"use client";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -7,9 +6,9 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16">
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-[-10%] left-[30%] w-[700px] h-[500px] rounded-full bg-[#9333ea]/20 blur-[120px]" />
-        <div className="absolute top-[20%] right-[-5%] w-[400px] h-[500px] rounded-full bg-[#d946ef]/10 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#9333ea]/10 blur-[100px]" />
+        <div className="absolute top-[-10%] left-[30%] w-[700px] h-[500px] rounded-full bg-[#9333ea]/20 blur-[80px]" />
+        <div className="absolute top-[20%] right-[-5%] w-[400px] h-[500px] rounded-full bg-[#d946ef]/10 blur-[80px]" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full bg-[#9333ea]/10 blur-[80px]" />
       </div>
 
       {/* Grid overlay */}
@@ -23,17 +22,17 @@ export default function Hero() {
       />
 
       <div className="relative z-10 section-container py-16 lg:py-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-4rem)]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-4rem)]">
 
           {/* Left: copy */}
-          <div className="flex flex-col justify-center order-2 lg:order-1 text-center lg:text-left">
+          <div className="flex flex-col justify-center order-1 text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08] mb-6">
               Você não tem problema de tráfego.{" "}
               <span className="gradient-text">Você tem problema de estrutura.</span>
             </h1>
 
             <p className="text-base md:text-lg text-violet-200/70 max-w-xl mb-8 leading-relaxed lg:mx-0 mx-auto">
-              Maíra Cardi, Afya, Carolina Caribé e mais 50 marcas não precisavam de mais verba. Precisavam de um sistema por trás: rastreamento certo, IA no funil, tecnologia que multiplica cada real investido. É isso que eu construo.
+              Maíra Cardi, Afya e Carolina Caribé tinham o mesmo problema que você. Tráfego rodando. Resultado abaixo do esperado. A diferença foi o sistema que construímos.
             </p>
 
             {/* CTAs */}
@@ -43,7 +42,7 @@ export default function Hero() {
                 id="hero-cta"
                 className="group flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#9333ea] hover:bg-[#7e22ce] text-white font-bold text-sm transition-all duration-200 shadow-[0_0_28px_rgba(147,51,234,0.5)] hover:shadow-[0_0_38px_rgba(147,51,234,0.7)] hover:scale-[1.02]"
               >
-                Quero minha call gratuita
+                Quero meu diagnóstico gratuito
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a
@@ -54,10 +53,13 @@ export default function Hero() {
               </a>
             </div>
 
+            <p className="text-violet-300/50 text-xs lg:text-left text-center">
+              Vagas limitadas por semana
+            </p>
           </div>
 
           {/* Right: photo */}
-          <div className="relative flex justify-center lg:justify-end items-center order-1 lg:order-2">
+          <div className="relative flex justify-center lg:justify-end items-center order-2">
             <div className="relative w-72 sm:w-80 lg:w-[420px] h-[400px] sm:h-[460px] lg:h-[580px]">
               {/* Glow behind photo */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#9333ea]/30 to-[#d946ef]/15 blur-3xl scale-105" />
@@ -65,7 +67,7 @@ export default function Hero() {
               <div className="relative w-full h-full rounded-3xl overflow-hidden border border-[rgba(147,51,234,0.3)]">
                 <Image
                   src="/julio.png"
-                  alt="Julio Carvalho"
+                  alt="Julio Carvalho, Estrategista de Crescimento com IA e Dados"
                   fill
                   sizes="(max-width: 768px) 320px, (max-width: 1024px) 320px, 420px"
                   className="object-cover object-top"

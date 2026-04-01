@@ -73,8 +73,9 @@ export default function LeadForm() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>Nome completo *</label>
+          <label htmlFor="nome" className={labelClass}>Nome completo *</label>
           <input
+            id="nome"
             type="text"
             name="nome"
             required
@@ -85,9 +86,10 @@ export default function LeadForm() {
           />
         </div>
         <div>
-          <label className={labelClass}>WhatsApp *</label>
+          <label htmlFor="whatsapp" className={labelClass}>WhatsApp *</label>
           <input
-            type="text"
+            id="whatsapp"
+            type="tel"
             name="whatsapp"
             required
             value={form.whatsapp}
@@ -99,8 +101,9 @@ export default function LeadForm() {
       </div>
 
       <div>
-        <label className={labelClass}>E-mail *</label>
+        <label htmlFor="email" className={labelClass}>E-mail *</label>
         <input
+          id="email"
           type="email"
           name="email"
           required
@@ -113,8 +116,9 @@ export default function LeadForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>Segmento/nicho *</label>
+          <label htmlFor="segmento" className={labelClass}>Segmento/nicho *</label>
           <select
+            id="segmento"
             name="segmento"
             required
             value={form.segmento}
@@ -128,8 +132,9 @@ export default function LeadForm() {
           </select>
         </div>
         <div>
-          <label className={labelClass}>Verba mensal em tráfego *</label>
+          <label htmlFor="verba" className={labelClass}>Verba mensal em tráfego *</label>
           <select
+            id="verba"
             name="verba"
             required
             value={form.verba}
@@ -145,8 +150,9 @@ export default function LeadForm() {
       </div>
 
       <div>
-        <label className={labelClass}>Maior desafio atual</label>
+        <label htmlFor="desafio" className={labelClass}>Maior desafio atual</label>
         <textarea
+          id="desafio"
           name="desafio"
           value={form.desafio}
           onChange={handleChange}
@@ -175,7 +181,7 @@ export default function LeadForm() {
         )}
       </button>
 
-      <p className="text-center text-violet-300/40 text-xs">
+      <p className="text-center text-violet-300/60 text-xs">
         Sem spam. Seus dados ficam seguros.
       </p>
     </form>

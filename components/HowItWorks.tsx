@@ -46,11 +46,11 @@ export default function HowItWorks() {
           Sem deck de onboarding de 3 semanas. Sem relatório de diagnóstico que vira gaveta. A gente entra, identifica, constrói e roda.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {steps.map((s, i) => (
             <div
               key={i}
-              className="glass-card rounded-2xl p-8 flex gap-6 group hover:border-[rgba(147,51,234,0.5)] transition-all duration-300"
+              className="glass-card rounded-2xl p-8 flex gap-6 group hover:border-[rgba(147,51,234,0.5)] hover:-translate-y-1 transition-all duration-300"
             >
               {/* Step number + icon */}
               <div className="flex-shrink-0">
@@ -65,6 +65,16 @@ export default function HowItWorks() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA inline */}
+        <div className="text-center mt-12">
+          <a
+            href="#cta"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[rgba(147,51,234,0.4)] text-violet-200 hover:text-white hover:border-[rgba(147,51,234,0.7)] hover:bg-[rgba(147,51,234,0.1)] transition-all duration-200 text-sm font-medium"
+          >
+            Quer saber onde seu funil está vazando?
+          </a>
         </div>
       </div>
     </section>

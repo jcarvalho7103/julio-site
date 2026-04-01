@@ -2,20 +2,23 @@ const testimonials = [
   {
     quote:
       "O Julio não entrega relatório — entrega sistema. Em 60 dias tínhamos automações rodando, CPL caindo e dados reais para tomar decisão. É outro nível.",
-    name: "Cliente — Infoproduto",
+    name: "Mentoria — Infoproduto",
     role: "Programa de mentoria",
+    initial: "M",
   },
   {
     quote:
       "Finalmente alguém que entende que o problema não é só o tráfego. Ele mapeou o funil inteiro, identificou onde estávamos perdendo e construiu a solução. Resultado: 3x de ROAS em 90 dias.",
-    name: "Cliente — E-commerce",
+    name: "E-commerce — Moda",
     role: "Setor de moda",
+    initial: "E",
   },
   {
     quote:
       "Trabalhar com o Julio é diferente. Ele combina estratégia com tecnologia de um jeito que a maioria das agências não consegue. A IA que ele implementou economiza horas da equipe todo dia.",
-    name: "Cliente — Healthtech",
+    name: "Tech — Plataforma Médica",
     role: "Plataforma médica",
+    initial: "T",
   },
 ];
 
@@ -26,9 +29,12 @@ export default function Testimonials() {
         <p className="text-center text-xs text-violet-400 font-semibold tracking-widest uppercase mb-4">
           Depoimentos
         </p>
-        <h2 className="text-3xl md:text-4xl font-black text-center text-white mb-16 tracking-tight">
-          O que dizem quem já escalou
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center text-white mb-4 tracking-tight">
+          Resultados reais. Palavras reais.
         </h2>
+        <p className="text-center text-violet-200/60 max-w-xl mx-auto mb-12 text-lg">
+          De quem já estava no mesmo ponto que você e decidiu mudar a estrutura.
+        </p>
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
@@ -51,7 +57,7 @@ export default function Testimonials() {
 
               <div className="flex items-center gap-3 border-t border-[rgba(147,51,234,0.15)] pt-5">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#9333ea] to-[#d946ef] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                  {t.name.charAt(0)}
+                  {t.initial}
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">{t.name}</p>

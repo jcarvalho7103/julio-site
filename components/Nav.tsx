@@ -28,16 +28,16 @@ export default function Nav() {
       }`}
       style={{ WebkitBackdropFilter: "blur(20px)" }}
     >
-      <div className="section-container flex items-center justify-between h-16 md:h-18">
+      <div className="section-container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <a href="#" aria-label="Julio Carvalho — Início da página" className="flex items-center gap-2">
           <span className="text-white font-black text-lg tracking-tight">
             Julio<span className="gradient-text">Carvalho</span>
           </span>
         </a>
 
         {/* Desktop links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Navegação principal" className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a
               key={l.href}
@@ -54,22 +54,29 @@ export default function Nav() {
           href="#cta"
           className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#9333ea] hover:bg-[#7e22ce] text-white text-sm font-semibold transition-all duration-200 shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_28px_rgba(147,51,234,0.6)]"
         >
-          Agendar Call
+          Diagnóstico gratuito
         </a>
 
         {/* Mobile toggle */}
         <button
           className="md:hidden text-white p-1"
           onClick={() => setOpen(!open)}
-          aria-label="Menu"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden bg-[#140225] border-t border-[rgba(147,51,234,0.2)] px-6 py-4 flex flex-col gap-4">
+      <div
+        id="mobile-menu"
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="bg-[#140225] border-t border-[rgba(147,51,234,0.2)] px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <a
               key={l.href}
@@ -85,10 +92,10 @@ export default function Nav() {
             onClick={() => setOpen(false)}
             className="mt-2 text-center px-5 py-3 rounded-full bg-[#9333ea] text-white font-semibold"
           >
-            Agendar Call
+            Diagnóstico gratuito
           </a>
         </div>
-      )}
+      </div>
     </header>
   );
 }
