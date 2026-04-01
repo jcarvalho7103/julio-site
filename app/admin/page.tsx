@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { supabaseAdmin } from "@/lib/supabase";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
