@@ -17,7 +17,7 @@ const services = [
     highlight: "Lead que entra no sistema precisa de um destino. Não de uma pasta.",
   },
   {
-    icon: GitBranch,
+    icon: Workflow,
     tag: "Automações",
     title: "Automações que trabalham enquanto você dorme",
     description:
