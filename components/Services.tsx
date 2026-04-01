@@ -1,4 +1,4 @@
-import { Database, GitBranch, Radar } from "lucide-react";
+import { Database, GitBranch, Radar, Bot, Workflow } from "lucide-react";
 
 const services = [
   {
@@ -46,6 +46,38 @@ const services = [
     ],
     highlight: "O algoritmo otimiza com o que você entrega pra ele. Dado ruim, resultado ruim.",
   },
+  {
+    icon: Bot,
+    tag: "IA para Vendas",
+    title: "Agentes de IA que vendem, qualificam e agendam",
+    description:
+      "Não é chatbot de FAQ. É um agente treinado com o seu produto, suas objeções e o seu processo de vendas. Responde em segundos, qualifica pelo critério que você define, agenda reunião direto na agenda do SDR e passa o contexto completo da conversa pro CRM. O comercial só entra quando o lead já está quente.",
+    items: [
+      "Agente de IA treinado com roteiro de vendas, objeções e produto",
+      "Qualificação automática por perguntas e análise de respostas com LLM",
+      "Agendamento de reuniões integrado ao Google Calendar ou Calendly",
+      "Handoff para humano com resumo da conversa e score do lead",
+      "Atendimento 24/7 no WhatsApp, Instagram Direct e Messenger",
+      "Atualização automática de etapa e campos no CRM após cada conversa",
+    ],
+    highlight: "Lead que chega às 23h não espera até segunda-feira. O agente não dorme.",
+  },
+  {
+    icon: Workflow,
+    tag: "ManyChat + n8n",
+    title: "Automações de conversação com ManyChat e n8n",
+    description:
+      "ManyChat para capturar, engajar e distribuir leads direto no Instagram e Messenger. n8n para conectar tudo isso com o CRM, o WhatsApp, a planilha, o Slack e qualquer sistema que você já usa. Sem código customizado que quebra na primeira atualização. Sem depender de dev pra cada ajuste.",
+    items: [
+      "Fluxos de DM no Instagram com captura de lead por palavra-chave ou comentário",
+      "Campanhas de broadcast segmentadas por tag, interesse e estágio no funil",
+      "Integração ManyChat → CRM via n8n com enriquecimento automático de dados",
+      "Webhooks e APIs conectando ferramentas sem plataformas intermediárias caras",
+      "Fluxos de reativação de lead frio via sequência WhatsApp + email + DM",
+      "Notificações internas em tempo real para o time via Slack, Telegram ou email",
+    ],
+    highlight: "Se duas ferramentas que você usa não conversam, tem trabalho manual no meio. Isso é custo escondido.",
+  },
 ];
 
 export default function Services() {
@@ -56,11 +88,11 @@ export default function Services() {
           O que construímos
         </p>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center text-white mb-4 tracking-tight max-w-3xl mx-auto leading-tight">
-          As três camadas que a maioria{" "}
-          <span className="gradient-text">nunca chega a montar</span>
+          O que eu construo{" "}
+          <span className="gradient-text">na sua operação</span>
         </h2>
         <p className="text-center text-violet-200/60 max-w-xl mx-auto mb-16 text-lg">
-          Tráfego sem essas três coisas é dinheiro que entra pelo ralo. Com elas, cada real investido tem para onde ir.
+          Cada peça conectada à próxima. CRM, automações, rastreamento, IA e integração de ferramentas — tudo rodando junto, não em paralelo.
         </p>
 
         <div className="space-y-8">
