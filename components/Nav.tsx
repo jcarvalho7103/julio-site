@@ -2,13 +2,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-// Links fixos — sempre apontam para a home com âncora
-// Funciona tanto na home (scroll direto) quanto em outras páginas (navega + scroll)
 const links = [
-  { label: "Como funciona", href: "/#como-funciona" },
-  { label: "Resultados", href: "/#resultados" },
-  { label: "Sobre", href: "/#sobre" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "Como funciona", href: "#como-funciona" },
+  { label: "Resultados", href: "#resultados" },
+  { label: "Sobre", href: "#sobre" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Nav() {
