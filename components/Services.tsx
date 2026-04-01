@@ -1,4 +1,4 @@
-import { Database, GitBranch, Radar, Bot, Workflow } from "lucide-react";
+import { Database, Radar, Bot, Workflow } from "lucide-react";
 
 const services = [
   {
@@ -77,22 +77,6 @@ const services = [
       "Fluxos de reativação de lead frio com gatilho por tempo de inatividade",
     ],
     highlight: "Comentário em post é intenção de compra. A maioria deixa isso passar sem responder.",
-  },
-  {
-    icon: GitBranch,
-    tag: "n8n",
-    title: "Integrações e automações avançadas com n8n",
-    description:
-      "n8n é o sistema nervoso da operação. Conecta CRM, WhatsApp, planilhas, plataformas de tráfego, ferramentas de IA e qualquer sistema com API — sem código que quebra na primeira atualização e sem pagar por cada execução. Quando uma ferramenta precisa avisar outra, o n8n faz isso acontecer.",
-    items: [
-      "Webhooks e APIs conectando qualquer par de ferramentas que você já usa",
-      "Enriquecimento automático de lead ao entrar no CRM (empresa, cargo, LinkedIn)",
-      "Notificações em tempo real para o time via Slack, Telegram ou email com contexto completo",
-      "Fluxos de dados entre plataformas de tráfego, CRM e dashboard sem exportar CSV",
-      "Automações de follow-up multicanal: WhatsApp + email + DM em sequência",
-      "Integrações com LLMs para classificar, resumir e pontuar leads automaticamente",
-    ],
-    highlight: "Cada transferência manual de dado entre ferramentas é risco de erro e tempo perdido.",
   },
 ];
 
