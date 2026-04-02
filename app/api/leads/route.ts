@@ -5,7 +5,7 @@ import { supabaseAdmin } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { nome, empresa, email, whatsapp, faturamento, investeMarketing, estrutura, desafio, url_params } = body;
+  const { nome, empresa, email, whatsapp, faturamento, investeMarketing, estrutura, desafio, url_params, geo } = body;
 
   if (!nome || !empresa || !email || !whatsapp || !faturamento || !investeMarketing || !estrutura || !desafio) {
     return NextResponse.json({ error: "Campos obrigatórios faltando." }, { status: 400 });
@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
       estrutura,
       desafio,
       url_params: url_params || null,
+      geo: geo || null,
     },
   ]);
 

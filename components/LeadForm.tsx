@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import PhoneInputWrapper from "./PhoneInputWrapper";
 import { gtm } from "@/lib/gtm";
+import { getGeoData, type GeoData } from "@/lib/geo";
 
 const FATURAMENTOS = [
   "Até R$10 mil",
@@ -38,6 +39,7 @@ export default function LeadForm() {
     desafio: "",
   });
   const [urlParams, setUrlParams] = useState<Record<string, string>>({});
+  const [geoData, setGeoData] = useState<GeoData | null>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -49,6 +51,8 @@ export default function LeadForm() {
       params[key] = value;
     });
     if (Object.keys(params).length > 0) setUrlParams(params);
+
+    getGeoData().then(setGeoData);
   }, []);
 
   const handleChange = (
@@ -91,6 +95,7 @@ export default function LeadForm() {
           ...form,
           estrutura: form.estrutura.join(", "),
           url_params: Object.keys(urlParams).length > 0 ? urlParams : undefined,
+          geo: geoData ?? undefined,
         }),
       });
 
@@ -110,6 +115,7 @@ export default function LeadForm() {
         faturamento: form.faturamento,
         investeMarketing: form.investeMarketing,
         estrutura: form.estrutura.join(", "),
+        geo: geoData ?? undefined,
       });
       setSuccess(true);
     } catch (err: unknown) {

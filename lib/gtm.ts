@@ -39,6 +39,17 @@ export const gtm = {
     faturamento?: string;
     investeMarketing?: string;
     estrutura?: string;
+    geo?: {
+      ip?: string;
+      city?: string;
+      region?: string;
+      country?: string;
+      timezone?: string;
+      latitude?: number;
+      longitude?: number;
+      accuracy?: number;
+      source?: string;
+    };
   }) =>
     pushEvent("generate_lead", {
       form_id: "lead_form",
@@ -49,6 +60,7 @@ export const gtm = {
         email: data.email,
         phone: data.whatsapp,
       },
+      geo: data.geo,
       faturamento: data.faturamento,
       investe_marketing: data.investeMarketing,
       estrutura: data.estrutura,
