@@ -249,7 +249,7 @@ export const metadata: Metadata = {
     siteName: "Julio Carvalho",
     images: [
       {
-        url: `${BASE_URL}/og-image.png`,
+        url: `${BASE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Julio Carvalho — Estrategista de Crescimento com IA e Dados",
@@ -261,7 +261,7 @@ export const metadata: Metadata = {
     title: "Julio Carvalho — Estrategista de Crescimento com IA e Dados",
     description:
       "Tráfego pago + IA + tecnologia = sistema que escala. +50 marcas. Diagnóstico gratuito.",
-    images: [`${BASE_URL}/og-image.png`],
+    images: [`${BASE_URL}/opengraph-image`],
     creator: "@jcarvalho.ads",
   },
   robots: {
