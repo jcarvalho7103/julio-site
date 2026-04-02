@@ -30,6 +30,7 @@ export default function LeadForm() {
   const [form, setForm] = useState({
     nome: "",
     empresa: "",
+    email: "",
     whatsapp: "",
     faturamento: "",
     investeMarketing: "",
@@ -168,9 +169,23 @@ export default function LeadForm() {
         </div>
       </div>
 
-      {/* WhatsApp */}
-      <div>
-        <label htmlFor="whatsapp" className={labelClass}>WhatsApp *</label>
+      {/* Email + WhatsApp */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="email" className={labelClass}>E-mail *</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            value={form.email}
+            onChange={handleChange}
+            placeholder="joao@empresa.com"
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label htmlFor="whatsapp" className={labelClass}>WhatsApp *</label>
           <PhoneInputWrapper
             value={form.whatsapp}
             onChange={(value) => {
@@ -181,6 +196,7 @@ export default function LeadForm() {
               setForm((prev) => ({ ...prev, whatsapp: value }));
             }}
           />
+        </div>
       </div>
 
       {/* Faixa de faturamento */}
