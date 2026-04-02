@@ -24,16 +24,12 @@ const ESTRUTURA_NEGOCIO = [
   "Faço tudo sozinho",
 ];
 
-const SEGMENTOS = ["Saúde", "Educação", "Imóveis", "Finanças", "E-commerce", "Outro"];
-const VERBAS = ["Menos de R$3k", "R$3k–R$10k", "R$10k–R$30k", "Acima de R$30k"];
 
 export default function LeadForm() {
   const [form, setForm] = useState({
     nome: "",
     empresa: "",
     whatsapp: "",
-    segmento: "",
-    verba: "",
     faturamento: "",
     investeMarketing: "",
     estrutura: [] as string[],
@@ -183,41 +179,6 @@ export default function LeadForm() {
         </div>
       </div>
 
-      {/* Segmento + Verba */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="segmento" className={labelClass}>Segmento/nicho *</label>
-          <select
-            id="segmento"
-            name="segmento"
-            required
-            value={form.segmento}
-            onChange={handleChange}
-            className={inputClass}
-          >
-            <option value="" disabled>Selecione...</option>
-            {SEGMENTOS.map((s) => (
-              <option key={s} value={s} className="bg-[#1a0533]">{s}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="verba" className={labelClass}>Verba mensal em tráfego *</label>
-          <select
-            id="verba"
-            name="verba"
-            required
-            value={form.verba}
-            onChange={handleChange}
-            className={inputClass}
-          >
-            <option value="" disabled>Selecione...</option>
-            {VERBAS.map((v) => (
-              <option key={v} value={v} className="bg-[#1a0533]">{v}</option>
-            ))}
-          </select>
-        </div>
-      </div>
 
       {/* Já investe em marketing */}
       <div>
