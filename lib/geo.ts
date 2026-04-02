@@ -10,21 +10,12 @@ export interface GeoData {
   source: "ip" | "gps" | "ip+gps";
 }
 
-// Busca localização por IP (sem permissão do usuário)
+// Busca localização por IP via rota interna (server-side proxy, sem mixed-content)
 async function getGeoByIP(): Promise<Partial<GeoData>> {
   try {
-    const res = await fetch("https://ipapi.co/json/", { signal: AbortSignal.timeout(4000) });
+    const res = await fetch("/api/geo", { signal: AbortSignal.timeout(5000) });
     if (!res.ok) return {};
-    const data = await res.json();
-    return {
-      ip: data.ip,
-      city: data.city,
-      region: data.region,
-      country: data.country_name,
-      timezone: data.timezone,
-      latitude: data.latitude,
-      longitude: data.longitude,
-    };
+    return await res.json();
   } catch {
     return {};
   }
