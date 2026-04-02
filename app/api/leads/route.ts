@@ -5,14 +5,24 @@ import { supabaseAdmin } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { nome, whatsapp, segmento, verba, desafio } = body;
+  const { nome, empresa, whatsapp, segmento, verba, faturamento, investeMarketing, estrutura, desafio } = body;
 
-  if (!nome || !whatsapp || !segmento || !verba) {
+  if (!nome || !whatsapp || !segmento || !verba || !faturamento || !investeMarketing) {
     return NextResponse.json({ error: "Campos obrigatórios faltando." }, { status: 400 });
   }
 
   const { error } = await supabaseAdmin.from("leads").insert([
-    { nome, whatsapp, segmento, verba, desafio: desafio || null },
+    {
+      nome,
+      empresa: empresa || null,
+      whatsapp,
+      segmento,
+      verba,
+      faturamento,
+      investe_marketing: investeMarketing,
+      estrutura: estrutura || null,
+      desafio: desafio || null,
+    },
   ]);
 
   if (error) {

@@ -4,15 +4,38 @@ import { useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import PhoneInputWrapper from "./PhoneInputWrapper";
 
+const FATURAMENTOS = [
+  "Até R$10 mil",
+  "Entre R$10 mil e R$50 mil",
+  "Entre R$50 mil e R$100 mil",
+  "Acima de R$100 mil",
+];
+
+const INVESTE_MARKETING = [
+  "Sim, invisto todo mês",
+  "Já investi, mas parei",
+  "Nunca investi",
+];
+
+const ESTRUTURA_NEGOCIO = [
+  "Tenho equipe",
+  "Tenho uma ou outra pessoa me ajudando",
+  "Faço tudo sozinho",
+];
+
 const SEGMENTOS = ["Saúde", "Educação", "Imóveis", "Finanças", "E-commerce", "Outro"];
 const VERBAS = ["Menos de R$3k", "R$3k–R$10k", "R$10k–R$30k", "Acima de R$30k"];
 
 export default function LeadForm() {
   const [form, setForm] = useState({
     nome: "",
+    empresa: "",
     whatsapp: "",
     segmento: "",
     verba: "",
+    faturamento: "",
+    investeMarketing: "",
+    estrutura: [] as string[],
     desafio: "",
   });
   const [loading, setLoading] = useState(false);
@@ -25,6 +48,15 @@ export default function LeadForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleCheckbox = (value: string) => {
+    setForm((prev) => ({
+      ...prev,
+      estrutura: prev.estrutura.includes(value)
+        ? prev.estrutura.filter((v) => v !== value)
+        : [...prev.estrutura, value],
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -34,7 +66,10 @@ export default function LeadForm() {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          estrutura: form.estrutura.join(", "),
+        }),
       });
 
       if (!res.ok) {
@@ -56,7 +91,7 @@ export default function LeadForm() {
         <div className="text-5xl mb-4">✓</div>
         <h3 className="text-2xl font-black text-white mb-3">Recebemos!</h3>
         <p className="text-violet-200/70 text-lg">
-          Julio entrará em contato em breve pelo WhatsApp ou e-mail.
+          Julio entrará em contato em breve pelo WhatsApp.
         </p>
       </div>
     );
@@ -65,16 +100,18 @@ export default function LeadForm() {
   const inputClass =
     "w-full px-4 py-3 rounded-xl bg-[rgba(255,255,255,0.05)] border border-[rgba(147,51,234,0.3)] text-white placeholder-violet-300/40 focus:outline-none focus:border-[#9333ea] focus:bg-[rgba(147,51,234,0.1)] transition-colors text-sm";
   const labelClass = "block text-sm font-medium text-violet-200/80 mb-1.5";
+  const sectionLabelClass = "block text-sm font-semibold text-violet-200/90 mb-3 text-center";
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-lg mx-auto space-y-4 px-4 sm:px-0"
+      className="w-full max-w-lg mx-auto space-y-5 px-4 sm:px-0"
       suppressHydrationWarning
     >
+      {/* Nome + Empresa */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="nome" className={labelClass} suppressHydrationWarning>Nome completo *</label>
+          <label htmlFor="nome" className={labelClass}>Nome completo *</label>
           <input
             id="nome"
             type="text"
@@ -84,21 +121,71 @@ export default function LeadForm() {
             onChange={handleChange}
             placeholder="João Silva"
             className={inputClass}
-            suppressHydrationWarning
           />
         </div>
         <div>
-          <label htmlFor="whatsapp" className={labelClass} suppressHydrationWarning>WhatsApp *</label>
-          <PhoneInputWrapper
-            value={form.whatsapp}
-            onChange={(value) => setForm((prev) => ({ ...prev, whatsapp: value }))}
+          <label htmlFor="empresa" className={labelClass}>Nome da empresa</label>
+          <input
+            id="empresa"
+            type="text"
+            name="empresa"
+            value={form.empresa}
+            onChange={handleChange}
+            placeholder="Minha Empresa"
+            className={inputClass}
           />
         </div>
       </div>
 
+      {/* WhatsApp */}
+      <div>
+        <label htmlFor="whatsapp" className={labelClass}>WhatsApp *</label>
+        <PhoneInputWrapper
+          value={form.whatsapp}
+          onChange={(value) => setForm((prev) => ({ ...prev, whatsapp: value }))}
+        />
+      </div>
+
+      {/* Faixa de faturamento */}
+      <div className="rounded-xl border border-[rgba(147,51,234,0.3)] bg-[rgba(255,255,255,0.03)] px-5 py-4">
+        <span className={sectionLabelClass}>Faixa de faturamento mensal *</span>
+        <div className="space-y-2.5">
+          {FATURAMENTOS.map((f) => (
+            <label key={f} className="flex items-center gap-3 cursor-pointer group">
+              <div className="relative flex-shrink-0">
+                <input
+                  type="radio"
+                  name="faturamento"
+                  value={f}
+                  required
+                  checked={form.faturamento === f}
+                  onChange={handleChange}
+                  className="sr-only"
+                />
+                <div className={`w-4 h-4 rounded-full border-2 transition-all ${
+                  form.faturamento === f
+                    ? "border-[#9333ea] bg-[#9333ea]"
+                    : "border-violet-400/40 group-hover:border-violet-400"
+                }`}>
+                  {form.faturamento === f && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                    </div>
+                  )}
+                </div>
+              </div>
+              <span className={`text-sm transition-colors ${
+                form.faturamento === f ? "text-white font-medium" : "text-violet-200/60 group-hover:text-violet-200"
+              }`}>{f}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Segmento + Verba */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="segmento" className={labelClass} suppressHydrationWarning>Segmento/nicho *</label>
+          <label htmlFor="segmento" className={labelClass}>Segmento/nicho *</label>
           <select
             id="segmento"
             name="segmento"
@@ -106,7 +193,6 @@ export default function LeadForm() {
             value={form.segmento}
             onChange={handleChange}
             className={inputClass}
-            suppressHydrationWarning
           >
             <option value="" disabled>Selecione...</option>
             {SEGMENTOS.map((s) => (
@@ -115,7 +201,7 @@ export default function LeadForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="verba" className={labelClass} suppressHydrationWarning>Verba mensal em tráfego *</label>
+          <label htmlFor="verba" className={labelClass}>Verba mensal em tráfego *</label>
           <select
             id="verba"
             name="verba"
@@ -123,7 +209,6 @@ export default function LeadForm() {
             value={form.verba}
             onChange={handleChange}
             className={inputClass}
-            suppressHydrationWarning
           >
             <option value="" disabled>Selecione...</option>
             {VERBAS.map((v) => (
@@ -133,8 +218,60 @@ export default function LeadForm() {
         </div>
       </div>
 
+      {/* Já investe em marketing */}
       <div>
-        <label htmlFor="desafio" className={labelClass} suppressHydrationWarning>Maior desafio atual</label>
+        <label htmlFor="investeMarketing" className={labelClass}>Você já investe em marketing digital atualmente? *</label>
+        <select
+          id="investeMarketing"
+          name="investeMarketing"
+          required
+          value={form.investeMarketing}
+          onChange={handleChange}
+          className={inputClass}
+        >
+          <option value="" disabled>Selecione...</option>
+          {INVESTE_MARKETING.map((v) => (
+            <option key={v} value={v} className="bg-[#1a0533]">{v}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Estrutura do negócio */}
+      <div className="rounded-xl border border-[rgba(147,51,234,0.3)] bg-[rgba(255,255,255,0.03)] px-5 py-4">
+        <span className={sectionLabelClass}>Como está estruturado o seu negócio hoje?</span>
+        <div className="space-y-2.5">
+          {ESTRUTURA_NEGOCIO.map((op) => (
+            <label key={op} className="flex items-center gap-3 cursor-pointer group">
+              <div className="relative flex-shrink-0">
+                <input
+                  type="checkbox"
+                  checked={form.estrutura.includes(op)}
+                  onChange={() => handleCheckbox(op)}
+                  className="sr-only"
+                />
+                <div className={`w-4 h-4 rounded border-2 transition-all flex items-center justify-center ${
+                  form.estrutura.includes(op)
+                    ? "border-[#9333ea] bg-[#9333ea]"
+                    : "border-violet-400/40 group-hover:border-violet-400"
+                }`}>
+                  {form.estrutura.includes(op) && (
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                </div>
+              </div>
+              <span className={`text-sm transition-colors ${
+                form.estrutura.includes(op) ? "text-white font-medium" : "text-violet-200/60 group-hover:text-violet-200"
+              }`}>{op}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Desafio */}
+      <div>
+        <label htmlFor="desafio" className={labelClass}>Qual é o seu maior desafio hoje?</label>
         <textarea
           id="desafio"
           name="desafio"
@@ -143,7 +280,6 @@ export default function LeadForm() {
           rows={3}
           placeholder="Descreva brevemente o que está travando seu crescimento..."
           className={inputClass + " resize-none"}
-          suppressHydrationWarning
         />
       </div>
 
@@ -160,7 +296,7 @@ export default function LeadForm() {
           <Loader2 size={18} className="animate-spin" />
         ) : (
           <>
-            Quero meu diagnóstico gratuito
+            Quero meu diagnóstico
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </>
         )}
