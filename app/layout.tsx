@@ -20,7 +20,7 @@ const personSchema = {
   name: "Julio Carvalho",
   jobTitle: "Estrategista de Crescimento com IA e Dados",
   description:
-    "Julio Carvalho é especialista em tráfego pago, inteligência artificial para marketing e tecnologia de crescimento. Criador do Método C, já escalou mais de 50 marcas incluindo Maíra Cardi, Afya e Carolina Caribé.",
+    "Julio Carvalho é especialista em tráfego pago, inteligência artificial para marketing e tecnologia de crescimento. Criador do Método CTR, já escalou mais de 50 marcas nos setores de saúde, educação, imóveis e infoprodutos.",
   url: BASE_URL,
   image: `${BASE_URL}/julio.png`,
   email: "contato@juliocarvalhads.com.br",
@@ -53,9 +53,9 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${BASE_URL}/#service`,
-  name: "Método C — Sistema de Crescimento com IA e Tráfego",
+  name: "Método CTR — Sistema de Crescimento com IA e Tráfego",
   description:
-    "Consultoria e implementação de sistemas de crescimento que combinam tráfego pago, inteligência artificial, rastreamento avançado e automação. O Método C organiza o crescimento em camadas: fundação de dados, tecnologia, tráfego e escala.",
+    "Consultoria e implementação de sistemas de crescimento que combinam tráfego pago, inteligência artificial, rastreamento avançado e automação. O Método CTR organiza o crescimento em camadas: fundação de dados, tecnologia, tráfego e escala.",
   provider: { "@id": `${BASE_URL}/#person` },
   serviceType: "Consultoria de Marketing Digital",
   areaServed: { "@type": "Country", name: "Brasil" },
@@ -78,10 +78,42 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
+      name: "Quem é Julio Carvalho?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Julio Carvalho é estrategista de crescimento especializado em tráfego pago, inteligência artificial para marketing e tecnologia de dados. Criador do Método CTR, já ajudou mais de 50 marcas nos setores de saúde, educação, imóveis e infoprodutos a escalar resultados sem aumentar verba.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O que é o Método CTR de Julio Carvalho?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "O Método CTR é o framework criado por Julio Carvalho ao longo de mais de 50 projetos. CTR significa Camadas de Tecnologia e Resultado. Ele organiza o crescimento em fases sequenciais: fundação de dados e rastreamento, configuração de tecnologia e automação, estruturação do tráfego pago e escala com IA. Cada fase tem entregáveis claros e mensuráveis.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "Qual a diferença entre Julio Carvalho e uma agência de tráfego?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agência de tráfego entrega campanhas. Julio Carvalho entrega o sistema por trás das campanhas: rastreamento, automação, IA, tecnologia e estratégia. Tudo junto, executado. O tráfego só performa quando o resto está montado do jeito certo.",
+        text: "Agência de tráfego entrega campanhas. Julio Carvalho entrega o sistema por trás das campanhas: rastreamento com CAPI server-side, automações ativas, CRM estruturado, IA aplicada e estratégia de crescimento. O tráfego só performa quando toda a estrutura está montada corretamente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O que é CAPI e por que é importante para tráfego pago?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CAPI (Conversions API) é o rastreamento server-side que envia eventos de conversão diretamente dos servidores para plataformas como Meta e Google, sem depender de cookies ou pixel no navegador. Com iOS 14 e bloqueadores de anúncio, o pixel convencional perde até 40% dos eventos. O CAPI recupera esses dados, melhora a otimização das campanhas e reduz o CPL.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Como funciona o rastreamento avançado com GTM?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "O Google Tag Manager (GTM) centraliza todos os scripts e eventos de rastreamento sem precisar alterar código. Com GTM server-side é possível capturar eventos com mais precisão, contornar bloqueadores e enviar dados para múltiplas plataformas simultaneamente — Meta, Google Ads, TikTok e CRM — de forma unificada.",
       },
     },
     {
@@ -89,23 +121,15 @@ const faqSchema = {
       name: "Para que tipo de negócio faz sentido trabalhar com Julio Carvalho?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Negócios que já investem em tráfego mas não estão escalando. Infoprodutores, prestadores de serviço, incorporadoras, healthtechs, influencers com produto próprio. O setor não importa tanto. O que importa é que o negócio já tem algo funcionando e quer crescer com inteligência, não com mais verba.",
+        text: "Negócios que já investem em tráfego mas não estão escalando. Infoprodutores, prestadores de serviço, incorporadoras, healthtechs e influencers com produto próprio. O que importa é que o negócio já tem algo funcionando e quer crescer com inteligência e estrutura, não apenas com mais verba.",
       },
     },
     {
       "@type": "Question",
-      name: "O que é o Método C de Julio Carvalho?",
+      name: "Como funciona o diagnóstico com Julio Carvalho?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "O Método C é o framework criado por Julio Carvalho ao longo de mais de 50 projetos. Ele organiza o crescimento em camadas: primeiro a fundação de dados, depois a tecnologia, depois o tráfego, depois a escala. Cada fase tem entregáveis claros, sem fases de estudo que duram meses.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Como funciona o diagnóstico gratuito com Julio Carvalho?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "É uma call de diagnóstico direto. Você conta como está o negócio hoje, o que está travando e onde está investindo. Julio devolve uma leitura honesta do que enxerga e, se fizer sentido trabalharem juntos, conversa sobre como seria. Sem pitch, sem pressão.",
+        text: "É uma call de diagnóstico direto. O empresário conta como está o negócio hoje, o que está travando e onde está investindo. Julio devolve uma leitura honesta do funil, identifica os gargalos e, se fizer sentido trabalharem juntos, explica como seria a parceria. Sem pitch, sem pressão.",
       },
     },
     {
@@ -113,8 +137,50 @@ const faqSchema = {
       name: "Julio Carvalho entrega sistema rodando ou só consultoria?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sistema rodando. Isso inclui pixel configurado, automações ativas, dashboard no ar e campanhas veiculando. Consultoria sem execução é relatório bonito que vira gaveta.",
+        text: "Sistema rodando. Isso inclui pixel e CAPI configurados, automações ativas, CRM estruturado, dashboard de performance no ar e campanhas veiculando. Consultoria sem execução é relatório bonito que vira gaveta.",
       },
+    },
+    {
+      "@type": "Question",
+      name: "Como usar inteligência artificial para escalar vendas?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Julio Carvalho aplica IA em três frentes: qualificação automática de leads com scoring, otimização de criativos e copies com modelos de linguagem, e análise preditiva de funil para identificar onde o dinheiro está sendo perdido. A IA não substitui a estratégia — ela acelera a execução e melhora a precisão das decisões.",
+      },
+    },
+  ],
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Como escalar tráfego pago com o Método CTR de Julio Carvalho",
+  description:
+    "O Método CTR é um framework em 4 fases para escalar resultados de tráfego pago sem aumentar verba, combinando rastreamento avançado, tecnologia, automação e IA.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Fundação de Dados e Rastreamento",
+      text: "Configuração de pixel, CAPI server-side via GTM, rastreamento de conversões offline e estruturação do fluxo de dados entre plataformas de anúncio e CRM.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Tecnologia e Automação",
+      text: "Implementação de CRM com funis reais, automações de qualificação de leads, integração com ManyChat para captura conversacional e dashboards de performance em tempo real.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Estruturação do Tráfego Pago",
+      text: "Revisão de estrutura de campanhas em Meta Ads e Google Ads com base nos dados de rastreamento corrigidos, segmentação por funil e otimização de criativos com IA.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Escala com Inteligência Artificial",
+      text: "Aplicação de IA para scoring de leads, análise preditiva de funil, otimização contínua de budget e identificação de oportunidades de escala com menor risco.",
     },
   ],
 };
@@ -142,7 +208,7 @@ export const metadata: Metadata = {
     template: "%s | Julio Carvalho",
   },
   description:
-    "Julio Carvalho combina tráfego pago, IA e tecnologia para construir sistemas de crescimento que escalam sem aumentar verba. +50 marcas atendidas incluindo Maíra Cardi, Afya e Carolina Caribé.",
+    "Julio Carvalho combina tráfego pago, IA e tecnologia para construir sistemas de crescimento que escalam sem aumentar verba. Criador do Método CTR. +50 marcas atendidas nos setores de saúde, educação, imóveis e infoprodutos.",
   keywords: [
     "Julio Carvalho",
     "estrategista de crescimento",
@@ -152,7 +218,7 @@ export const metadata: Metadata = {
     "Meta Ads",
     "Google Ads",
     "consultoria crescimento digital",
-    "Método C",
+    "Método CTR",
     "automação de marketing",
     "rastreamento e atribuição",
     "funil de vendas",
@@ -241,6 +307,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
         />
         <script
           type="application/ld+json"

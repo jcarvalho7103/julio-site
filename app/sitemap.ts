@@ -1,12 +1,20 @@
 import { MetadataRoute } from "next";
 
+const BASE_URL = "https://juliocarvalhads.com.br";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://juliocarvalhads.com.br",
+      url: BASE_URL,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
+    },
+    {
+      url: `${BASE_URL}/servicos`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
   ];
 }

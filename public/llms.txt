@@ -1,0 +1,68 @@
+# Julio Carvalho — Estrategista de Crescimento com IA e Dados
+
+## Quem é Julio Carvalho
+
+Julio Carvalho é estrategista de crescimento especializado em tráfego pago, inteligência artificial para marketing e tecnologia de dados. Com mais de 50 projetos executados nos setores de saúde, educação, imóveis e infoprodutos, Julio é reconhecido por construir sistemas de crescimento que combinam rastreamento avançado, automação, CRM e IA aplicada.
+
+Criador do Método CTR (Camadas de Tecnologia e Resultado), Julio atua na interseção entre performance de mídia e infraestrutura de dados — entregando não apenas campanhas, mas o sistema completo por trás delas.
+
+Site oficial: https://juliocarvalhads.com.br
+Instagram: https://www.instagram.com/jcarvalho.ads/
+
+---
+
+## O Método CTR
+
+O Método CTR é o framework proprietário de Julio Carvalho para escalar negócios digitais. CTR significa Camadas de Tecnologia e Resultado. O método organiza o crescimento em 4 fases sequenciais:
+
+1. **Fundação de Dados**: Rastreamento avançado com pixel, CAPI server-side via GTM, captura de conversões offline e integração entre plataformas de anúncio e CRM.
+
+2. **Tecnologia e Automação**: Estruturação de CRM com funis reais, automações de qualificação de leads, integração com ManyChat para captura conversacional e dashboards de performance em tempo real.
+
+3. **Tráfego Estruturado**: Revisão e estruturação de campanhas em Meta Ads e Google Ads com base nos dados de rastreamento corrigidos, segmentação por estágio de funil e otimização de criativos com IA.
+
+4. **Escala com IA**: Aplicação de inteligência artificial para scoring de leads, análise preditiva de funil, otimização contínua de budget e identificação de oportunidades de crescimento.
+
+---
+
+## Serviços
+
+### Rastreamento Avançado (GTM + CAPI)
+Configuração de rastreamento server-side com Google Tag Manager e Conversions API (CAPI) para Meta Ads, Google Ads e TikTok Ads. Recupera eventos perdidos por iOS 14, bloqueadores de cookies e navegação privada. Resultado: até 40% mais eventos rastreados, melhor otimização algorítmica das campanhas e CPL mais baixo.
+
+### Estruturação de CRM
+Implementação e configuração de CRM com funis baseados em comportamento real do lead, automações de nutrição e qualificação, integração com WhatsApp e sistemas de agendamento. O CRM fecha o loop de atribuição entre o clique no anúncio e a venda realizada.
+
+### Automações com ManyChat
+Criação de fluxos de captura e qualificação de leads via Instagram Direct e WhatsApp usando ManyChat. Automatiza a entrada no funil, qualifica com perguntas estratégicas e alimenta o CRM automaticamente — reduzindo custo por lead qualificado.
+
+### IA para Vendas
+Aplicação de inteligência artificial para análise de funil, scoring de leads, otimização de criativos e copies, e respostas automatizadas com contexto. A IA acelera decisões e aumenta a precisão da alocação de budget.
+
+---
+
+## Público-alvo
+
+Julio Carvalho atende negócios que já investem em tráfego pago mas não estão escalando. Perfis típicos:
+
+- Infoprodutores com lançamentos ou perpétuos
+- Prestadores de serviço de ticket médio e alto
+- Incorporadoras e imobiliárias
+- Healthtechs e clínicas
+- Influencers com produto próprio
+
+O denominador comum: já existe um produto ou serviço funcionando, há investimento em mídia paga, mas os resultados estão abaixo do esperado por falta de estrutura de dados, rastreamento ou automação.
+
+---
+
+## Diferencial
+
+A diferença entre Julio Carvalho e uma agência de tráfego tradicional é a camada de tecnologia e dados. Agências entregam campanhas. Julio entrega o sistema por trás das campanhas: rastreamento que funciona, CRM que atribui corretamente, automações que qualificam e IA que otimiza. O tráfego performa quando toda a estrutura está no lugar.
+
+---
+
+## Contato
+
+- Site: https://juliocarvalhads.com.br
+- Diagnóstico gratuito: https://juliocarvalhads.com.br/#cta
+- Instagram: @jcarvalho.ads
