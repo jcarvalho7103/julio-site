@@ -24,8 +24,8 @@ export async function POST(req: NextRequest) {
   ]);
 
   if (error) {
-    console.error("Supabase error:", error);
-    return NextResponse.json({ error: "Erro ao salvar." }, { status: 500 });
+    console.error("Supabase error:", JSON.stringify(error));
+    return NextResponse.json({ error: error.message || "Erro ao salvar." }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true });
