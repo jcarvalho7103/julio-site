@@ -74,8 +74,12 @@ export default function LeadForm() {
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Erro ao enviar.");
+        let msg = "Erro ao enviar. Tente novamente.";
+        try {
+          const data = await res.json();
+          if (data?.error) msg = data.error;
+        } catch {}
+        throw new Error(msg);
       }
 
       setSuccess(true);
