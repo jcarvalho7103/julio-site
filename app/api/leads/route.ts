@@ -7,19 +7,19 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const { nome, empresa, whatsapp, faturamento, investeMarketing, estrutura, desafio } = body;
 
-  if (!nome || !whatsapp || !faturamento || !investeMarketing) {
+  if (!nome || !empresa || !whatsapp || !faturamento || !investeMarketing || !estrutura || !desafio) {
     return NextResponse.json({ error: "Campos obrigatórios faltando." }, { status: 400 });
   }
 
   const { error } = await supabaseAdmin.from("leads").insert([
     {
       nome,
-      empresa: empresa || null,
+      empresa,
       whatsapp,
       faturamento,
       investe_marketing: investeMarketing,
-      estrutura: estrutura || null,
-      desafio: desafio || null,
+      estrutura,
+      desafio,
     },
   ]);
 

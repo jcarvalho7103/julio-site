@@ -56,6 +56,10 @@ export default function LeadForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (form.estrutura.length === 0) {
+      setError("Selecione ao menos uma opção em 'Como está estruturado o seu negócio'.");
+      return;
+    }
     setLoading(true);
     setError("");
 
@@ -121,11 +125,12 @@ export default function LeadForm() {
           />
         </div>
         <div>
-          <label htmlFor="empresa" className={labelClass}>Nome da empresa</label>
+          <label htmlFor="empresa" className={labelClass}>Nome da empresa *</label>
           <input
             id="empresa"
             type="text"
             name="empresa"
+            required
             value={form.empresa}
             onChange={handleChange}
             placeholder="Minha Empresa"
@@ -200,7 +205,7 @@ export default function LeadForm() {
 
       {/* Estrutura do negócio */}
       <div className="rounded-xl border border-[rgba(147,51,234,0.3)] bg-[rgba(255,255,255,0.03)] px-5 py-4">
-        <span className={sectionLabelClass}>Como está estruturado o seu negócio hoje?</span>
+        <span className={sectionLabelClass}>Como está estruturado o seu negócio hoje? *</span>
         <div className="space-y-2.5">
           {ESTRUTURA_NEGOCIO.map((op) => (
             <label key={op} className="flex items-center gap-3 cursor-pointer group">
@@ -233,10 +238,11 @@ export default function LeadForm() {
 
       {/* Desafio */}
       <div>
-        <label htmlFor="desafio" className={labelClass}>Qual é o seu maior desafio hoje?</label>
+        <label htmlFor="desafio" className={labelClass}>Qual é o seu maior desafio hoje? *</label>
         <textarea
           id="desafio"
           name="desafio"
+          required
           value={form.desafio}
           onChange={handleChange}
           rows={3}
