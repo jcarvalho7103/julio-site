@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import PhoneInputWrapper from "./PhoneInputWrapper";
 
@@ -35,9 +35,18 @@ export default function LeadForm() {
     estrutura: [] as string[],
     desafio: "",
   });
+  const [urlParams, setUrlParams] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const params: Record<string, string> = {};
+    new URLSearchParams(window.location.search).forEach((value, key) => {
+      params[key] = value;
+    });
+    if (Object.keys(params).length > 0) setUrlParams(params);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -70,6 +79,7 @@ export default function LeadForm() {
         body: JSON.stringify({
           ...form,
           estrutura: form.estrutura.join(", "),
+          url_params: Object.keys(urlParams).length > 0 ? urlParams : undefined,
         }),
       });
 
