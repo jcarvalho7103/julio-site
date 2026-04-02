@@ -33,6 +33,9 @@ export const gtm = {
 
   // Lead gerado com sucesso
   lead: (data: {
+    nome?: string;
+    email?: string;
+    whatsapp?: string;
     faturamento?: string;
     investeMarketing?: string;
     estrutura?: string;
@@ -41,6 +44,11 @@ export const gtm = {
       form_id: "lead_form",
       form_name: "Diagnóstico Julio Carvalho",
       currency: "BRL",
+      user_data: {
+        name: data.nome,
+        email: data.email,
+        phone: data.whatsapp,
+      },
       faturamento: data.faturamento,
       investe_marketing: data.investeMarketing,
       estrutura: data.estrutura,

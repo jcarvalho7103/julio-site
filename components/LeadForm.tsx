@@ -104,6 +104,9 @@ export default function LeadForm() {
       }
 
       gtm.lead({
+        nome: form.nome,
+        email: form.email,
+        whatsapp: form.whatsapp,
         faturamento: form.faturamento,
         investeMarketing: form.investeMarketing,
         estrutura: form.estrutura.join(", "),
