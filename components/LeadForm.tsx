@@ -12,9 +12,10 @@ const FATURAMENTOS = [
 ];
 
 const INVESTE_MARKETING = [
-  "Sim, invisto todo mês",
-  "Já investi, mas parei",
-  "Nunca investi",
+  "Não, ainda não",
+  "Sim, com agência",
+  "Sim, com equipe interna",
+  "Sim, com freelancer",
 ];
 
 const ESTRUTURA_NEGOCIO = [
