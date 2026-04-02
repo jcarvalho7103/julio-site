@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import PhoneInputWrapper from "./PhoneInputWrapper";
+import { gtm } from "@/lib/gtm";
 
 const FATURAMENTOS = [
   "Até R$10 mil",
@@ -39,6 +40,7 @@ export default function LeadForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const formStarted = useRef(false);
 
   useEffect(() => {
     const params: Record<string, string> = {};
@@ -51,6 +53,10 @@ export default function LeadForm() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
+    if (!formStarted.current) {
+      formStarted.current = true;
+      gtm.formStart();
+    }
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -71,6 +77,10 @@ export default function LeadForm() {
     }
     setLoading(true);
     setError("");
+    gtm.formSubmit({
+      faturamento: form.faturamento,
+      investeMarketing: form.investeMarketing,
+    });
 
     try {
       const res = await fetch("/api/leads", {
@@ -92,6 +102,11 @@ export default function LeadForm() {
         throw new Error(msg);
       }
 
+      gtm.lead({
+        faturamento: form.faturamento,
+        investeMarketing: form.investeMarketing,
+        estrutura: form.estrutura.join(", "),
+      });
       setSuccess(true);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Erro ao enviar.");
@@ -156,10 +171,16 @@ export default function LeadForm() {
       {/* WhatsApp */}
       <div>
         <label htmlFor="whatsapp" className={labelClass}>WhatsApp *</label>
-        <PhoneInputWrapper
-          value={form.whatsapp}
-          onChange={(value) => setForm((prev) => ({ ...prev, whatsapp: value }))}
-        />
+          <PhoneInputWrapper
+            value={form.whatsapp}
+            onChange={(value) => {
+              if (!formStarted.current) {
+                formStarted.current = true;
+                gtm.formStart();
+              }
+              setForm((prev) => ({ ...prev, whatsapp: value }));
+            }}
+          />
       </div>
 
       {/* Faixa de faturamento */}
