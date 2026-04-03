@@ -30,7 +30,7 @@ export default function Nav() {
     >
       <div className="section-container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <a href="#" aria-label="Julio Carvalho — Início da página" className="flex items-center gap-2">
+        <a href="/" aria-label="Julio Carvalho — Início da página" className="flex items-center gap-2">
           <span className="text-white font-black text-lg tracking-tight">
             Julio<span className="gradient-text">Carvalho</span>
           </span>

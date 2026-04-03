@@ -112,7 +112,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Vocês entregam sistema rodando ou só consultoria?",
+      name: "Você entrega sistema rodando ou só consultoria?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Sistema rodando. Isso inclui pixel configurado, automações ativas, dashboard no ar, campanhas veiculando. Consultoria sem execução é relatório bonito que vira gaveta. Não é o que eu faço.",

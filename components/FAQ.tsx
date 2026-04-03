@@ -20,7 +20,7 @@ const faqs = [
     a: "É um diagnóstico direto. Você me conta como está o negócio hoje, o que está travando, onde está investindo. Eu devolvo uma leitura honesta do que eu enxergo e, se fizer sentido trabalharmos juntos, a gente conversa sobre como seria. Sem pitch. Sem pressão.",
   },
   {
-    q: "Vocês entregam sistema rodando ou só consultoria?",
+    q: "Você entrega sistema rodando ou só consultoria?",
     a: "Sistema rodando. Isso inclui pixel configurado, automações ativas, dashboard no ar, campanhas veiculando. Consultoria sem execução é relatório bonito que vira gaveta. Não é o que eu faço.",
   },
 ];

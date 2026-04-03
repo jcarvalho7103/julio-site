@@ -7,10 +7,12 @@ import LogoutButton from "./LogoutButton";
 interface Lead {
   id: string;
   nome: string;
-  whatsapp: string;
+  empresa: string;
   email: string;
-  segmento: string;
-  verba: string;
+  whatsapp: string;
+  faturamento: string;
+  investe_marketing: string;
+  estrutura: string;
   desafio: string | null;
   created_at: string;
 }
@@ -18,7 +20,7 @@ interface Lead {
 async function getLeads(): Promise<Lead[]> {
   const { data, error } = await getSupabaseAdmin()
     .from("leads")
-    .select("*")
+    .select("id, nome, empresa, email, whatsapp, faturamento, investe_marketing, estrutura, desafio, created_at")
     .order("created_at", { ascending: false });
 
   if (error) return [];
@@ -56,10 +58,12 @@ export default async function AdminPage() {
               <thead>
                 <tr className="border-b border-violet-500/20 bg-violet-500/10">
                   <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Nome</th>
-                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">WhatsApp</th>
+                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Empresa</th>
                   <th className="text-left px-4 py-3 text-violet-300/80 font-medium">E-mail</th>
-                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Segmento</th>
-                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Verba</th>
+                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">WhatsApp</th>
+                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Faturamento</th>
+                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Investe Marketing</th>
+                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Estrutura</th>
                   <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Desafio</th>
                   <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Data</th>
                 </tr>
@@ -70,18 +74,18 @@ export default async function AdminPage() {
                     key={lead.id}
                     className={`border-b border-violet-500/10 ${i % 2 === 0 ? "" : "bg-white/[0.02]"} hover:bg-violet-500/5 transition-colors`}
                   >
-                    <td className="px-4 py-3 font-medium">{lead.nome}</td>
-                    <td className="px-4 py-3 text-violet-200/70">{lead.whatsapp}</td>
-                    <td className="px-4 py-3 text-violet-200/70">{lead.email}</td>
-                    <td className="px-4 py-3">
+                    <td className="px-4 py-3 font-medium whitespace-nowrap">{lead.nome}</td>
+                    <td className="px-4 py-3 text-violet-200/70 whitespace-nowrap">{lead.empresa || "—"}</td>
+                    <td className="px-4 py-3 text-violet-200/70">{lead.email || "—"}</td>
+                    <td className="px-4 py-3 text-violet-200/70 whitespace-nowrap">{lead.whatsapp}</td>
+                    <td className="px-4 py-3 whitespace-nowrap">
                       <span className="px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300 text-xs">
-                        {lead.segmento}
+                        {lead.faturamento || "—"}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-violet-200/70 whitespace-nowrap">{lead.verba}</td>
-                    <td className="px-4 py-3 text-violet-200/50 max-w-[200px] truncate">
-                      {lead.desafio || "—"}
-                    </td>
+                    <td className="px-4 py-3 text-violet-200/70 whitespace-nowrap">{lead.investe_marketing || "—"}</td>
+                    <td className="px-4 py-3 text-violet-200/50 max-w-[160px] truncate">{lead.estrutura || "—"}</td>
+                    <td className="px-4 py-3 text-violet-200/50 max-w-[200px] truncate">{lead.desafio || "—"}</td>
                     <td className="px-4 py-3 text-violet-200/50 whitespace-nowrap">
                       {new Date(lead.created_at).toLocaleString("pt-BR", {
                         day: "2-digit",
