@@ -18,6 +18,12 @@
     "react-dom": "^18",
     "react-phone-input-2": "^2.15.1"
   },
+  "browserslist": [
+    "chrome >= 109",
+    "firefox >= 115",
+    "safari >= 15.6",
+    "edge >= 109"
+  ],
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
