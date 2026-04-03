@@ -47,7 +47,7 @@ export default function About() {
               Aprendi a programar. Aprendi a usar IA do jeito que faz diferença pra negócio, não só pra gerar texto. E comecei a juntar tudo isso num único trabalho: estratégia, dados, tecnologia e tráfego, executados do mesmo lugar, com o mesmo objetivo.
             </p>
             <p className="text-violet-200/70 mb-8 leading-relaxed">
-              Mais de 50 projetos depois, de influencers com milhões de seguidores a healthtechs e incorporadoras, virou o Método C. Não é fórmula mágica. É a sequência certa para não desperdiçar o que você já tem.
+              Mais de 50 projetos depois, de influencers com milhões de seguidores a healthtechs e incorporadoras, virou o Método CTR. Não é fórmula mágica. É a sequência certa para não desperdiçar o que você já tem.
             </p>
 
             <div className="mt-8">

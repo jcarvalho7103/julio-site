@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import "react-phone-input-2/lib/style.css";
 
@@ -72,80 +73,49 @@ const serviceSchema = {
   },
 };
 
+// FAQ alinhado 1:1 com components/FAQ.tsx
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
     {
       "@type": "Question",
-      name: "Quem é Julio Carvalho?",
+      name: "Qual a diferença entre você e uma agência de tráfego?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Julio Carvalho é estrategista de crescimento especializado em tráfego pago, inteligência artificial para marketing e tecnologia de dados. Criador do Método CTR, já ajudou mais de 50 marcas nos setores de saúde, educação, imóveis e infoprodutos a escalar resultados sem aumentar verba.",
+        text: "Agência de tráfego entrega campanhas. Eu entrego o sistema por trás das campanhas. Rastreamento, automação, IA, tecnologia, estratégia. Tudo junto, executado. O tráfego só performa quando o resto está montado do jeito certo.",
       },
     },
     {
       "@type": "Question",
-      name: "O que é o Método CTR de Julio Carvalho?",
+      name: "Para que tipo de negócio faz sentido trabalhar com você?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "O Método CTR é o framework criado por Julio Carvalho ao longo de mais de 50 projetos. CTR significa Camadas de Tecnologia e Resultado. Ele organiza o crescimento em fases sequenciais: fundação de dados e rastreamento, configuração de tecnologia e automação, estruturação do tráfego pago e escala com IA. Cada fase tem entregáveis claros e mensuráveis.",
+        text: "Negócios que já investem em tráfego mas não estão escalando. Infoprodutores, prestadores de serviço, incorporadoras, healthtechs, influencers com produto próprio. O setor não importa tanto. O que importa é que você já tem algo funcionando e quer crescer com inteligência, não com mais verba.",
       },
     },
     {
       "@type": "Question",
-      name: "Qual a diferença entre Julio Carvalho e uma agência de tráfego?",
+      name: "O que é o Método CTR?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Agência de tráfego entrega campanhas. Julio Carvalho entrega o sistema por trás das campanhas: rastreamento com CAPI server-side, automações ativas, CRM estruturado, IA aplicada e estratégia de crescimento. O tráfego só performa quando toda a estrutura está montada corretamente.",
+        text: "É o framework que criei ao longo de mais de 50 projetos. Ele organiza o crescimento em camadas: primeiro a fundação de dados, depois a tecnologia, depois o tráfego, depois a escala. Cada fase tem entregáveis claros. Não tem fase de estudo que dura meses.",
       },
     },
     {
       "@type": "Question",
-      name: "O que é CAPI e por que é importante para tráfego pago?",
+      name: "Como funciona a call?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "CAPI (Conversions API) é o rastreamento server-side que envia eventos de conversão diretamente dos servidores para plataformas como Meta e Google, sem depender de cookies ou pixel no navegador. Com iOS 14 e bloqueadores de anúncio, o pixel convencional perde até 40% dos eventos. O CAPI recupera esses dados, melhora a otimização das campanhas e reduz o CPL.",
+        text: "É um diagnóstico direto. Você me conta como está o negócio hoje, o que está travando, onde está investindo. Eu devolvo uma leitura honesta do que eu enxergo e, se fizer sentido trabalharmos juntos, a gente conversa sobre como seria. Sem pitch. Sem pressão.",
       },
     },
     {
       "@type": "Question",
-      name: "Como funciona o rastreamento avançado com GTM?",
+      name: "Vocês entregam sistema rodando ou só consultoria?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "O Google Tag Manager (GTM) centraliza todos os scripts e eventos de rastreamento sem precisar alterar código. Com GTM server-side é possível capturar eventos com mais precisão, contornar bloqueadores e enviar dados para múltiplas plataformas simultaneamente — Meta, Google Ads, TikTok e CRM — de forma unificada.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Para que tipo de negócio faz sentido trabalhar com Julio Carvalho?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Negócios que já investem em tráfego mas não estão escalando. Infoprodutores, prestadores de serviço, incorporadoras, healthtechs e influencers com produto próprio. O que importa é que o negócio já tem algo funcionando e quer crescer com inteligência e estrutura, não apenas com mais verba.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Como funciona o diagnóstico com Julio Carvalho?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "É uma call de diagnóstico direto. O empresário conta como está o negócio hoje, o que está travando e onde está investindo. Julio devolve uma leitura honesta do funil, identifica os gargalos e, se fizer sentido trabalharem juntos, explica como seria a parceria. Sem pitch, sem pressão.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Julio Carvalho entrega sistema rodando ou só consultoria?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sistema rodando. Isso inclui pixel e CAPI configurados, automações ativas, CRM estruturado, dashboard de performance no ar e campanhas veiculando. Consultoria sem execução é relatório bonito que vira gaveta.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Como usar inteligência artificial para escalar vendas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Julio Carvalho aplica IA em três frentes: qualificação automática de leads com scoring, otimização de criativos e copies com modelos de linguagem, e análise preditiva de funil para identificar onde o dinheiro está sendo perdido. A IA não substitui a estratégia — ela acelera a execução e melhora a precisão das decisões.",
+        text: "Sistema rodando. Isso inclui pixel configurado, automações ativas, dashboard no ar, campanhas veiculando. Consultoria sem execução é relatório bonito que vira gaveta. Não é o que eu faço.",
       },
     },
   ],
@@ -288,21 +258,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <head>
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KPZP4P9');`,
-          }}
-        />
-        {/* End Google Tag Manager */}
-      </head>
       <body>
-        {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-KPZP4P9"
@@ -311,7 +267,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
         <a
           href="#conteudo-principal"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#9333ea] focus:text-white focus:rounded-lg"
@@ -319,6 +274,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           Ir para o conteúdo principal
         </a>
         {children}
+        <Script
+          id="gtm"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KPZP4P9');`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}

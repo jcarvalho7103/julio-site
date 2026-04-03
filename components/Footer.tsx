@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
           <div>
-            <a href="#" className="text-white font-black text-lg tracking-tight">
+            <a href="/" className="text-white font-black text-lg tracking-tight">
               Julio<span className="gradient-text">Carvalho</span>
             </a>
             <p className="text-violet-300/60 text-xs mt-1">Estrategista de Crescimento</p>
