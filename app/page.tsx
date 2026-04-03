@@ -1,14 +1,16 @@
-"use client";
+import dynamic from "next/dynamic";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Clients from "@/components/Clients";
-import Problem from "@/components/Problem";
-import HowItWorks from "@/components/HowItWorks";
-import Results from "@/components/Results";
-import About from "@/components/About";
-import FAQ from "@/components/FAQ";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
+
+// Componentes abaixo do fold — carregados após o LCP
+const Clients = dynamic(() => import("@/components/Clients"));
+const Problem = dynamic(() => import("@/components/Problem"));
+const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
+const Results = dynamic(() => import("@/components/Results"));
+const About = dynamic(() => import("@/components/About"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
+const CTA = dynamic(() => import("@/components/CTA"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 export default function Home() {
   return (
