@@ -20,4 +20,4 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-Sitemap: https://juliocarvalhads.com.br/sitemap.xml
+Sitemap: https://www.ojuliocarvalho.com/sitemap.xml

@@ -10,7 +10,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const BASE_URL = "https://juliocarvalhads.com.br";
+const BASE_URL = "https://www.ojuliocarvalho.com";
 
 // ─── Structured Data ────────────────────────────────────────────────────────
 
@@ -24,7 +24,7 @@ const personSchema = {
     "Julio Carvalho é especialista em tráfego pago, inteligência artificial para marketing e tecnologia de crescimento. Criador do Método CTR, já escalou mais de 50 marcas nos setores de saúde, educação, imóveis e infoprodutos.",
   url: BASE_URL,
   image: `${BASE_URL}/julio.png`,
-  email: "contato@juliocarvalhads.com.br",
+  email: "contato@ojuliocarvalho.com",
   sameAs: [
     "https://www.instagram.com/jcarvalho.ads/",
   ],

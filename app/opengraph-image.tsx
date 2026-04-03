@@ -161,7 +161,7 @@ export default function Image() {
             letterSpacing: "2px",
           }}
         >
-          juliocarvalhads.com.br
+          ojuliocarvalho.com
         </div>
       </div>
     ),

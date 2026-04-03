@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "CRM, automações, rastreamento avançado com GTM e CAPI, agentes de IA para vendas e ManyChat. Veja em detalhe o que Julio Carvalho constrói na sua operação.",
   alternates: {
-    canonical: "https://juliocarvalhads.com.br/servicos",
+    canonical: "https://www.ojuliocarvalho.com/servicos",
   },
   openGraph: {
     title: "Serviços | Julio Carvalho",
     description:
       "CRM estruturado, automações de qualificação, CAPI server-side, agente de IA para vendas e ManyChat. O que vai mudar na sua operação.",
-    url: "https://juliocarvalhads.com.br/servicos",
+    url: "https://www.ojuliocarvalho.com/servicos",
   },
 };
 

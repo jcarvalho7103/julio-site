@@ -35,7 +35,7 @@ export default function Footer() {
               <Instagram size={16} />
             </a>
             <a
-              href="mailto:contato@juliocarvalhads.com.br"
+              href="mailto:contato@ojuliocarvalho.com"
               aria-label="Email"
               className="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-violet-300/60 hover:text-white hover:border-[rgba(147,51,234,0.5)] transition-all"
             >
