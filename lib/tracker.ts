@@ -50,6 +50,7 @@ export async function trackerFire(
           ...(fbc ? { fbc } : {}),
         },
       }),
+      credentials: "include", // permite guardar os cookies geo first-party
       keepalive: true,
     });
   } catch {
