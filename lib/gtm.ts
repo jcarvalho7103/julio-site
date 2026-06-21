@@ -39,11 +39,14 @@ export const gtm = {
     faturamento?: string;
     investeMarketing?: string;
     estrutura?: string;
+    metaEventId?: string;
   }) =>
     pushEvent("generate_lead", {
       form_id: "lead_form",
       form_name: "Diagnóstico Julio Carvalho",
       currency: "BRL",
+      // event_id partilhado com a CAPI para o Meta deduplicar Pixel + servidor
+      meta_event_id: data.metaEventId,
       user_data: {
         name: data.nome,
         email: data.email,

@@ -22,15 +22,22 @@ type UserData = {
   ln?: string; // sobrenome
 };
 
+export function newEventId(): string {
+  return (
+    (typeof crypto !== "undefined" && crypto.randomUUID?.()) ||
+    `${Date.now()}-${Math.random().toString(36).slice(2)}`
+  );
+}
+
 export async function trackerFire(
   eventName: "PageView" | "Lead",
-  userData: UserData = {}
+  userData: UserData = {},
+  sharedEventId?: string
 ): Promise<void> {
   if (typeof window === "undefined") return;
 
-  const eventId =
-    (typeof crypto !== "undefined" && crypto.randomUUID?.()) ||
-    `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  // Se fornecido, usa o mesmo event_id do Pixel (dedup Meta Pixel + CAPI).
+  const eventId = sharedEventId || newEventId();
 
   const fbp = getCookie("_fbp");
   const fbc = getCookie("_fbc");

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import PhoneInputWrapper from "../PhoneInputWrapper";
 import { gtm } from "@/lib/gtm";
-import { trackerFire, splitNome } from "@/lib/tracker";
+import { trackerFire, splitNome, newEventId } from "@/lib/tracker";
 
 const FATURAMENTOS = [
   "Até R$10 mil",
@@ -99,19 +99,22 @@ export default function CapiLeadForm() {
         throw new Error(msg);
       }
 
+      // event_id único, partilhado entre Pixel (via dataLayer) e CAPI → dedup
+      const metaEventId = newEventId();
       gtm.lead({
         nome: form.nome,
         email: form.email,
         whatsapp: form.whatsapp,
         faturamento: form.faturamento,
         estrutura: form.plataformas.join(", "),
+        metaEventId,
       });
-      // Conversão server-side para o tracking stack (Meta CAPI)
-      trackerFire("Lead", {
-        em: form.email,
-        ph: form.whatsapp,
-        ...splitNome(form.nome),
-      });
+      // Conversão server-side para o tracking stack (Meta CAPI), mesmo event_id
+      trackerFire(
+        "Lead",
+        { em: form.email, ph: form.whatsapp, ...splitNome(form.nome) },
+        metaEventId
+      );
       setSuccess(true);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Erro ao enviar.");
