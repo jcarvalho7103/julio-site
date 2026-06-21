@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import CapiNav from "@/components/capi/CapiNav";
 import CapiHero from "@/components/capi/CapiHero";
+import CapiTracker from "@/components/capi/CapiTracker";
 
 // Abaixo do fold — carregados após o LCP
 const Clients = dynamic(() => import("@/components/Clients"));
@@ -140,6 +141,7 @@ export default function CapiPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(capiBreadcrumbSchema) }}
       />
+      <CapiTracker />
       <CapiNav />
       <CapiHero />
       <Clients />

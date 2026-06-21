@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import PhoneInputWrapper from "../PhoneInputWrapper";
 import { gtm } from "@/lib/gtm";
+import { trackerFire, splitNome } from "@/lib/tracker";
 
 const FATURAMENTOS = [
   "Até R$10 mil",
@@ -104,6 +105,12 @@ export default function CapiLeadForm() {
         whatsapp: form.whatsapp,
         faturamento: form.faturamento,
         estrutura: form.plataformas.join(", "),
+      });
+      // Conversão server-side para o tracking stack (Meta CAPI)
+      trackerFire("Lead", {
+        em: form.email,
+        ph: form.whatsapp,
+        ...splitNome(form.nome),
       });
       setSuccess(true);
     } catch (err: unknown) {
