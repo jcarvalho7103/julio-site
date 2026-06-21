@@ -10,7 +10,7 @@ const CapiDeliverables = dynamic(() => import("@/components/capi/CapiDeliverable
 const CapiProcess = dynamic(() => import("@/components/capi/CapiProcess"));
 const CapiFAQ = dynamic(() => import("@/components/capi/CapiFAQ"));
 const CapiCTA = dynamic(() => import("@/components/capi/CapiCTA"));
-const Footer = dynamic(() => import("@/components/Footer"));
+const CapiFooter = dynamic(() => import("@/components/capi/CapiFooter"));
 
 const BASE_URL = "https://www.ojuliocarvalho.com";
 
@@ -84,7 +84,7 @@ export default function CapiPage() {
       <CapiProcess />
       <CapiFAQ />
       <CapiCTA />
-      <Footer />
+      <CapiFooter />
     </main>
   );
 }
