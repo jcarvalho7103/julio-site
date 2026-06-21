@@ -33,10 +33,10 @@ export default function About() {
 
           {/* Content */}
           <div className="order-1 lg:order-2">
-            <p className="text-xs text-violet-400 font-semibold tracking-widest uppercase mb-4">
-              Quem é Julio Carvalho
+            <p className="inline-flex items-center gap-2 text-sm text-violet-300 font-semibold mb-5">
+              <span className="h-px w-8 bg-[#d946ef]" /> Quem é Julio Carvalho
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-6 tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] mb-6">
               Comecei como gestor de tráfego.{" "}
               <span className="gradient-text">Parei quando percebi que não era suficiente.</span>
             </h2>

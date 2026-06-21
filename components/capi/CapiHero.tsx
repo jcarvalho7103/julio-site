@@ -21,18 +21,18 @@ export default function CapiHero() {
       />
 
       <div className="relative z-10 section-container py-16">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Eyebrow */}
+        <div className="max-w-3xl mx-auto text-center reveal">
+          {/* Badge */}
           <p className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(147,51,234,0.3)] bg-[rgba(147,51,234,0.08)] text-violet-200 text-xs font-semibold tracking-wide uppercase mb-7">
-            API de Conversões — Meta · Google · TikTok
+            API de Conversões para Meta · Google · TikTok
           </p>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08] mb-6">
+          <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-extrabold text-white leading-[1.03] mb-6">
             Seu pixel está enxergando{" "}
             <span className="gradient-text">menos da metade</span> das suas conversões
           </h1>
 
-          <p className="text-base md:text-lg text-violet-200/70 max-w-2xl mx-auto mb-9 leading-relaxed">
+          <p className="text-lg md:text-xl text-violet-100/75 max-w-2xl mx-auto mb-9 leading-relaxed">
             iOS, bloqueadores de cookie e navegação privada quebraram o rastreamento pelo navegador. O algoritmo otimiza com dado incompleto e você paga mais por resultado. Eu instalo a API de Conversões server-side e devolvo o sinal limpo que o Meta, o Google e o TikTok precisam para baixar seu custo por lead.
           </p>
 

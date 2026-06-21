@@ -25,13 +25,10 @@ export default function CapiProblem() {
   return (
     <section className="py-24">
       <div className="section-container">
-        <p className="text-center text-xs text-violet-400 font-semibold tracking-widest uppercase mb-4">
-          O problema
-        </p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center text-white mb-4 tracking-tight max-w-3xl mx-auto">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-white mb-5 max-w-3xl mx-auto leading-[1.05]">
           Rastreamento quebrado custa dinheiro todo dia
         </h2>
-        <p className="text-center text-violet-200/60 max-w-xl mx-auto mb-16 text-lg">
+        <p className="text-center text-violet-100/70 max-w-xl mx-auto mb-16 text-lg">
           Desde o iOS 14, o rastreamento pelo navegador deixou de ser confiável. Reconhece algum desses?
         </p>
 

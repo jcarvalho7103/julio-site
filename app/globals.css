@@ -11,6 +11,8 @@
   --border:    rgba(147, 51, 234, 0.25);
   --text:      #ffffff;
   --muted:     #a78bfa;
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -30,38 +32,85 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Gradient text utility */
+/* Grão sutil — profundidade real sem glassmorphism */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Display font para títulos — peso e tracking decididos */
+h1, h2, h3, .font-display {
+  font-family: var(--font-display), var(--font-inter), system-ui, sans-serif;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+
+/* Gradient text — usar com parcimônia, só em momentos-assinatura */
 .gradient-text {
-  background: linear-gradient(135deg, #9333ea 0%, #d946ef 100%);
+  background: linear-gradient(105deg, var(--accent) 0%, var(--accent-2) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass card */
+/* Superfície — profundidade por borda + sombra + brilho interno, não por blur pesado */
 .glass-card {
-  background: rgba(20, 2, 37, 0.7);
-  border: 1px solid rgba(147, 51, 234, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background:
+    linear-gradient(180deg, rgba(147, 51, 234, 0.07), rgba(13, 1, 24, 0)),
+    rgba(20, 2, 37, 0.55);
+  border: 1px solid rgba(147, 51, 234, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.glass-card:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 12px 40px -12px rgba(147, 51, 234, 0.35);
+}
+
+/* Foco visível — acessibilidade em todos os interativos */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 7px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
 
-/* Fade-in animation on scroll (requires IntersectionObserver or static) */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+/* Entrada — só onde o conteúdo já é visível por padrão (sem gating) */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
+.reveal {
+  animation: reveal-up 0.7s var(--ease-out-quint) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
 
 /* Section base */
@@ -69,6 +118,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* react-phone-input-2 dark theme */

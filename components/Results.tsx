@@ -59,13 +59,10 @@ export default function Results() {
   return (
     <section id="resultados" ref={sectionRef} aria-label="Resultados e métricas" className="py-24">
       <div className="section-container">
-        <p className="text-center text-xs text-violet-400 font-semibold tracking-widest uppercase mb-4">
-          Resultados
-        </p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center text-white mb-4 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-white mb-5 leading-[1.05]">
           O que acontece quando a estrutura está certa
         </h2>
-        <p className="text-center text-violet-200/60 max-w-xl mx-auto mb-16 text-lg">
+        <p className="text-center text-violet-100/70 max-w-xl mx-auto mb-16 text-lg">
           Não é sorte, não é verba maior. É o mesmo orçamento trabalhando melhor.
         </p>
 

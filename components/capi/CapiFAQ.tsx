@@ -35,13 +35,10 @@ export default function CapiFAQ() {
   return (
     <section id="faq" className="py-24 bg-[#0a0114]">
       <div className="section-container">
-        <p className="text-center text-xs text-violet-400 font-semibold tracking-widest uppercase mb-4">
-          Dúvidas frequentes
-        </p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-center text-white mb-4 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-white mb-5 leading-[1.05]">
           Antes de preencher, leia isso
         </h2>
-        <p className="text-center text-violet-200/60 max-w-xl mx-auto mb-12 text-lg">
+        <p className="text-center text-violet-100/70 max-w-xl mx-auto mb-12 text-lg">
           O que costumam perguntar antes de começar.
         </p>
 

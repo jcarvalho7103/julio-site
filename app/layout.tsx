@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Bricolage_Grotesque } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import "react-phone-input-2/lib/style.css";
@@ -8,6 +8,14 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+});
+
+// Display font — distinta, com personalidade, para os títulos
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["600", "700", "800"],
 });
 
 const BASE_URL = "https://www.ojuliocarvalho.com";
@@ -257,7 +265,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={inter.variable}>
+    <html lang="pt-BR" className={`${inter.variable} ${bricolage.variable}`}>
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />

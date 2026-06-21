@@ -26,13 +26,13 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[calc(100vh-4rem)]">
 
           {/* Left: copy */}
-          <div className="flex flex-col justify-center order-1 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08] mb-6">
+          <div className="flex flex-col justify-center order-1 text-center lg:text-left reveal">
+            <h1 className="text-[clamp(2.75rem,6.5vw,5.25rem)] font-extrabold text-white leading-[1.02] mb-6">
               Você não tem problema de tráfego.{" "}
               <span className="gradient-text">Você tem problema de estrutura.</span>
             </h1>
 
-            <p className="text-base md:text-lg text-violet-200/70 max-w-xl mb-8 leading-relaxed lg:mx-0 mx-auto">
+            <p className="text-lg md:text-xl text-violet-100/75 max-w-xl mb-8 leading-relaxed lg:mx-0 mx-auto">
               Tráfego rodando. Resultado abaixo do esperado. Esse é o padrão de quem ainda não tem o sistema certo por trás das campanhas. A diferença está na estrutura.
             </p>
 
