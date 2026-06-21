@@ -7,19 +7,21 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const { nome, empresa, email, whatsapp, faturamento, investeMarketing, estrutura, desafio, url_params } = body;
 
-  if (!nome || !empresa || !email || !whatsapp || !faturamento || !investeMarketing || !estrutura || !desafio) {
+  // Campos sempre obrigatórios. empresa/investeMarketing/estrutura são opcionais
+  // para suportar formulários enxutos (ex.: LP de CAPI), sem quebrar o form principal.
+  if (!nome || !email || !whatsapp || !faturamento || !desafio) {
     return NextResponse.json({ error: "Campos obrigatórios faltando." }, { status: 400 });
   }
 
   const { error } = await supabaseAdmin.from("leads").insert([
     {
       nome,
-      empresa,
+      empresa: empresa || "",
       email,
       whatsapp,
       faturamento,
-      investe_marketing: investeMarketing,
-      estrutura,
+      investe_marketing: investeMarketing || "",
+      estrutura: estrutura || "",
       desafio,
       url_params: url_params || null,
     },
