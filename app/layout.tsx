@@ -10,12 +10,12 @@ const inter = Inter({
   display: "swap",
 });
 
-// Display font — distinta, com personalidade, para os títulos
+// Display font — só os pesos usados (700/800) para manter leve
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["600", "700", "800"],
+  weight: ["700", "800"],
 });
 
 const BASE_URL = "https://www.ojuliocarvalho.com";
