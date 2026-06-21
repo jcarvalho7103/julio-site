@@ -30,6 +30,8 @@ O Método CTR é o framework proprietário de Julio Carvalho para escalar negóc
 ### Rastreamento Avançado (GTM + CAPI)
 Configuração de rastreamento server-side com Google Tag Manager e Conversions API (CAPI) para Meta Ads, Google Ads e TikTok Ads. Recupera eventos perdidos por iOS 14, bloqueadores de cookies e navegação privada. Resultado: até 40% mais eventos rastreados, melhor otimização algorítmica das campanhas e CPL mais baixo.
 
+Página dedicada do serviço: https://www.ojuliocarvalho.com/capi
+
 ### Estruturação de CRM
 Implementação e configuração de CRM com funis baseados em comportamento real do lead, automações de nutrição e qualificação, integração com WhatsApp e sistemas de agendamento. O CRM fecha o loop de atribuição entre o clique no anúncio e a venda realizada.
 
@@ -61,8 +63,22 @@ A diferença entre Julio Carvalho e uma agência de tráfego tradicional é a ca
 
 ---
 
+## O que é a API de Conversões (CAPI)
+
+A API de Conversões (CAPI, do inglês Conversions API) é um método de enviar os eventos de conversão direto do servidor para a plataforma de anúncios, sem depender do navegador do usuário. Como o iOS, os bloqueadores de cookie e a navegação privada derrubam o rastreamento via pixel, a CAPI recupera os eventos que seriam perdidos e devolve sinal de qualidade para o algoritmo otimizar melhor.
+
+Julio Carvalho implementa a CAPI server-side para as três principais plataformas:
+- Meta Ads (Conversions API)
+- Google Ads (Enhanced Conversions)
+- TikTok Ads (Events API)
+
+A implementação inclui GTM server-side, deduplicação de eventos (pixel + CAPI via event_id) para não inflar os dados, e envio de conversões offline do CRM para fechar o ciclo de atribuição. Detalhes em https://www.ojuliocarvalho.com/capi
+
+---
+
 ## Contato
 
 - Site: https://www.ojuliocarvalho.com
+- API de Conversões (CAPI): https://www.ojuliocarvalho.com/capi
 - Diagnóstico gratuito: https://www.ojuliocarvalho.com/#cta
 - Instagram: @jcarvalho.ads

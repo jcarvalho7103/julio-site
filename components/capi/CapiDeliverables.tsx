@@ -5,7 +5,7 @@ const deliverables = [
     icon: Server,
     title: "API de Conversões server-side",
     description:
-      "Configuração da CAPI para Meta, Google Ads (Enhanced Conversions) e TikTok Events API, enviando os eventos direto do servidor — sem depender do navegador do usuário.",
+      "Configuração da CAPI para Meta, Google Ads (Enhanced Conversions) e TikTok Events API, enviando os eventos direto do servidor, sem depender do navegador do usuário.",
   },
   {
     icon: GitMerge,
@@ -62,7 +62,7 @@ export default function CapiDeliverables() {
         <div className="mt-10 max-w-3xl mx-auto glass-card rounded-2xl px-6 py-5 flex items-start gap-3">
           <CheckCircle2 size={20} className="text-[#d946ef] flex-shrink-0 mt-0.5" />
           <p className="text-violet-200/80 text-sm leading-relaxed">
-            <span className="text-white font-semibold">O objetivo é direto:</span> recuperar as conversões que o navegador perde, devolver sinal de qualidade para o algoritmo e fazer o mesmo orçamento gerar mais resultado — com dado em que você pode confiar para tomar decisão.
+            <span className="text-white font-semibold">O objetivo é direto:</span> recuperar as conversões que o navegador perde, devolver sinal de qualidade para o algoritmo e fazer o mesmo orçamento gerar mais resultado, com dado em que você pode confiar para tomar decisão.
           </p>
         </div>
       </div>

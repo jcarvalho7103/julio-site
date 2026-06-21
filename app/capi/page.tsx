@@ -15,12 +15,26 @@ const CapiFooter = dynamic(() => import("@/components/capi/CapiFooter"));
 const BASE_URL = "https://www.ojuliocarvalho.com";
 
 export const metadata: Metadata = {
-  title: "API de Conversões (CAPI) — Meta, Google e TikTok | Julio Carvalho",
+  title: "API de Conversões (CAPI) para Meta, Google e TikTok | Julio Carvalho",
   description:
-    "Seu pixel está perdendo metade das conversões. Instalo a API de Conversões server-side para Meta, Google Ads e TikTok, com deduplicação e GTM server-side, para baixar seu custo por lead. Diagnóstico gratuito.",
+    "Seu pixel está perdendo metade das conversões. Implemento a API de Conversões server-side para Meta, Google Ads e TikTok, com GTM server-side e deduplicação, para baixar seu custo por lead. Diagnóstico gratuito.",
+  keywords: [
+    "API de Conversões",
+    "CAPI",
+    "Conversions API Meta",
+    "Enhanced Conversions Google Ads",
+    "TikTok Events API",
+    "rastreamento server-side",
+    "GTM server-side",
+    "configurar CAPI",
+    "implementar API de Conversões",
+    "deduplicação pixel CAPI",
+    "rastreamento avançado tráfego pago",
+    "conversões offline CRM",
+  ],
   alternates: { canonical: `${BASE_URL}/capi` },
   openGraph: {
-    title: "API de Conversões (CAPI) server-side — Meta, Google e TikTok",
+    title: "API de Conversões (CAPI) server-side para Meta, Google e TikTok",
     description:
       "Recupere as conversões que o navegador perde e devolva sinal limpo para o algoritmo. Rastreamento avançado instalado e rodando. Diagnóstico gratuito.",
     type: "website",
@@ -69,12 +83,62 @@ const capiFaqSchema = {
   ],
 };
 
+const capiServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${BASE_URL}/capi#service`,
+  name: "Implementação de API de Conversões (CAPI) server-side",
+  serviceType: "Rastreamento avançado e API de Conversões",
+  description:
+    "Implementação da API de Conversões (CAPI) server-side para Meta Ads, Google Ads (Enhanced Conversions) e TikTok Events API, com GTM server-side, deduplicação de eventos e envio de conversões offline do CRM. Recupera as conversões que o navegador perde por iOS, bloqueadores de cookie e navegação privada.",
+  provider: {
+    "@type": "Person",
+    "@id": `${BASE_URL}/#person`,
+    name: "Julio Carvalho",
+  },
+  areaServed: { "@type": "Country", name: "Brasil" },
+  audience: {
+    "@type": "Audience",
+    audienceType: "Empresas que investem em tráfego pago no Meta, Google e TikTok",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "BRL",
+    name: "Diagnóstico de rastreamento gratuito",
+    description:
+      "Diagnóstico direto de quanto rastreamento a conta está perdendo hoje e o escopo da implementação.",
+  },
+};
+
+const capiBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Início", item: BASE_URL },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "API de Conversões (CAPI)",
+      item: `${BASE_URL}/capi`,
+    },
+  ],
+};
+
 export default function CapiPage() {
   return (
     <main id="conteudo-principal" className="bg-[#0d0118] text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(capiFaqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(capiServiceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(capiBreadcrumbSchema) }}
       />
       <CapiNav />
       <CapiHero />

@@ -20,7 +20,7 @@ const steps = [
     step: "03",
     title: "Validação e sinal limpo",
     description:
-      "Confirmo a qualidade do sinal nas três plataformas, ligo as conversões offline do CRM e deixo o monitoramento ativo. A partir daí o algoritmo otimiza com dado verdadeiro — e o custo por resultado cai.",
+      "Confirmo a qualidade do sinal nas três plataformas, ligo as conversões offline do CRM e deixo o monitoramento ativo. A partir daí o algoritmo otimiza com dado verdadeiro, e o custo por resultado cai.",
   },
 ];
 

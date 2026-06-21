@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "Funciona para Meta, Google e TikTok?",
-    a: "Sim. Configuro a Conversions API do Meta, o Enhanced Conversions do Google Ads e a Events API do TikTok — as três rodando server-side via GTM, com deduplicação correta para não inflar os dados no gerenciador.",
+    a: "Sim. Configuro a Conversions API do Meta, o Enhanced Conversions do Google Ads e a Events API do TikTok, as três rodando server-side via GTM, com deduplicação correta para não inflar os dados no gerenciador.",
   },
   {
     q: "Vou ver mais conversões duplicadas no gerenciador?",
@@ -21,11 +21,11 @@ const faqs = [
   },
   {
     q: "Quanto tempo leva para implementar?",
-    a: "Depende do tamanho da operação, mas é uma entrega objetiva — dias, não meses. Começa com o diagnóstico gratuito, onde eu te mostro exatamente o que está sendo perdido e o escopo da implementação.",
+    a: "Depende do tamanho da operação, mas é uma entrega objetiva: dias, não meses. Começa com o diagnóstico gratuito, onde eu te mostro exatamente o que está sendo perdido e o escopo da implementação.",
   },
   {
     q: "Como funciona o diagnóstico gratuito?",
-    a: "Você preenche o formulário, a gente conversa pelo WhatsApp ou em call, e eu te dou uma leitura honesta de quanto rastreamento você está perdendo hoje e o que precisa ser feito. Sem pitch e sem pressão — você sai com clareza mesmo que não fechemos.",
+    a: "Você preenche o formulário, a gente conversa pelo WhatsApp ou em call, e eu te dou uma leitura honesta de quanto rastreamento você está perdendo hoje e o que precisa ser feito. Sem pitch e sem pressão. Você sai com clareza mesmo que não fechemos.",
   },
 ];
 
