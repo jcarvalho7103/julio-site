@@ -30,7 +30,7 @@ export function newEventId(): string {
 }
 
 export async function trackerFire(
-  eventName: "PageView" | "Lead",
+  eventName: "PageView" | "ViewContent" | "Lead",
   userData: UserData = {},
   sharedEventId?: string
 ): Promise<void> {

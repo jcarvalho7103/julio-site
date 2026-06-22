@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import CapiNav from "@/components/capi/CapiNav";
 import CapiHero from "@/components/capi/CapiHero";
+import CapiTracker from "@/components/capi/CapiTracker";
 
 // Abaixo do fold — carregados após o LCP
 const Clients = dynamic(() => import("@/components/Clients"));
@@ -128,6 +129,15 @@ const capiBreadcrumbSchema = {
 export default function CapiPage() {
   return (
     <main id="conteudo-principal" className="bg-[#0d0118] text-white">
+      {/* event_id de page-load no dataLayer ANTES do GTM, para o Pixel
+          (PageView/ViewContent) e a CAPI partilharem o mesmo id → dedup */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "(function(){window.dataLayer=window.dataLayer||[];try{window.__capiEid=(self.crypto&&crypto.randomUUID)?crypto.randomUUID():(Date.now()+'-'+Math.random().toString(36).slice(2));}catch(e){window.__capiEid=Date.now()+'-'+Math.random();}window.dataLayer.push({meta_event_id:window.__capiEid});})();",
+        }}
+      />
+      <CapiTracker />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(capiFaqSchema) }}
