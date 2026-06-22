@@ -4,7 +4,7 @@ import OrbitingDot from "./OrbitingDot";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 md:pt-24 pb-16">
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-[-10%] left-[30%] w-[700px] h-[500px] rounded-full bg-[#9333ea]/20 blur-[80px]" />
