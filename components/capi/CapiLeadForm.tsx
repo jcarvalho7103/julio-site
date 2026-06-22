@@ -82,6 +82,7 @@ export default function CapiLeadForm() {
           whatsapp: form.whatsapp,
           faturamento: form.faturamento,
           desafio: form.desafio,
+          origem: "capi",
           url_params: {
             servico: "CAPI",
             plataformas: form.plataformas.join(", "),

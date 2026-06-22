@@ -5,7 +5,7 @@ import { supabaseAdmin } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { nome, empresa, email, whatsapp, faturamento, investeMarketing, estrutura, desafio, url_params } = body;
+  const { nome, empresa, email, whatsapp, faturamento, investeMarketing, estrutura, desafio, url_params, origem } = body;
 
   // Campos sempre obrigatórios. empresa/investeMarketing/estrutura são opcionais
   // para suportar formulários enxutos (ex.: LP de CAPI), sem quebrar o form principal.
@@ -23,7 +23,8 @@ export async function POST(req: NextRequest) {
       investe_marketing: investeMarketing || "",
       estrutura: estrutura || "",
       desafio,
-      url_params: url_params || null,
+      // origem guardada dentro do url_params (jsonb) — sem precisar de coluna nova
+      url_params: { ...(url_params || {}), origem: origem || "home" },
     },
   ]);
 

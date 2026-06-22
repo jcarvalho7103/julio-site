@@ -89,6 +89,7 @@ export default function LeadForm() {
         body: JSON.stringify({
           ...form,
           estrutura: form.estrutura.join(", "),
+          origem: "home",
           url_params: Object.keys(urlParams).length > 0 ? urlParams : undefined,
         }),
       });

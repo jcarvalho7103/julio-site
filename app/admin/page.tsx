@@ -14,13 +14,14 @@ interface Lead {
   investe_marketing: string;
   estrutura: string;
   desafio: string | null;
+  url_params: { origem?: string; servico?: string } | null;
   created_at: string;
 }
 
 async function getLeads(): Promise<Lead[]> {
   const { data, error } = await getSupabaseAdmin()
     .from("leads")
-    .select("id, nome, empresa, email, whatsapp, faturamento, investe_marketing, estrutura, desafio, created_at")
+    .select("id, nome, empresa, email, whatsapp, faturamento, investe_marketing, estrutura, desafio, url_params, created_at")
     .order("created_at", { ascending: false });
 
   if (error) return [];
@@ -57,6 +58,7 @@ export default async function AdminPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-violet-500/20 bg-violet-500/10">
+                  <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Origem</th>
                   <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Nome</th>
                   <th className="text-left px-4 py-3 text-violet-300/80 font-medium">Empresa</th>
                   <th className="text-left px-4 py-3 text-violet-300/80 font-medium">E-mail</th>
@@ -74,6 +76,25 @@ export default async function AdminPage() {
                     key={lead.id}
                     className={`border-b border-violet-500/10 ${i % 2 === 0 ? "" : "bg-white/[0.02]"} hover:bg-violet-500/5 transition-colors`}
                   >
+                    <td className="px-4 py-3 whitespace-nowrap">
+                      {(() => {
+                        const origem = lead.url_params?.origem
+                          || (lead.url_params?.servico === "CAPI" ? "capi" : null);
+                        return (
+                          <span
+                            className={`px-2 py-0.5 rounded-full text-xs font-semibold uppercase ${
+                              origem === "capi"
+                                ? "bg-fuchsia-500/25 text-fuchsia-200"
+                                : origem === "home"
+                                ? "bg-violet-500/20 text-violet-300"
+                                : "bg-white/10 text-violet-200/60"
+                            }`}
+                          >
+                            {origem || "—"}
+                          </span>
+                        );
+                      })()}
+                    </td>
                     <td className="px-4 py-3 font-medium whitespace-nowrap">{lead.nome}</td>
                     <td className="px-4 py-3 text-violet-200/70 whitespace-nowrap">{lead.empresa || "—"}</td>
                     <td className="px-4 py-3 text-violet-200/70">{lead.email || "—"}</td>
