@@ -1,9 +1,10 @@
-import { Database, Radar, Bot, Workflow } from "lucide-react";
+import { Database, Radar, Bot, Workflow, ArrowRight } from "lucide-react";
 
 const services = [
   {
     icon: Database,
     tag: "CRM",
+    href: "/crm",
     title: "Estruturação de CRM",
     description:
       "A maioria dos negócios usa CRM como agenda glorificada. Contato entra. Ninguém sabe de onde veio. Ninguém sabe pra onde vai. Não tem etapa de qualificação. Não tem régua de nutrição. Quando o lead esfria, some.",
@@ -19,6 +20,7 @@ const services = [
   {
     icon: Workflow,
     tag: "Automações",
+    href: "/automacoes",
     title: "Automações que trabalham enquanto você dorme",
     description:
       "Automação de verdade não é mandar email em sequência. É qualificar lead antes de chegar no comercial. É mover o contato de etapa quando ele toma uma ação. É avisar o time certo no momento certo, sem ninguém precisar apertar botão.",
@@ -34,6 +36,7 @@ const services = [
   {
     icon: Radar,
     tag: "GTM + CAPI",
+    href: "/capi",
     title: "Rastreamento avançado com GTM e CAPI de conversões",
     description:
       "iOS 14, bloqueadores de cookie e navegação em modo privado destruíram o pixel padrão. Você pensa que está rastreando 100% das conversões. Está vendo menos da metade. Isso significa que o algoritmo toma decisão com dado errado.",
@@ -49,6 +52,7 @@ const services = [
   {
     icon: Bot,
     tag: "IA para Vendas",
+    href: "/agentes-ia",
     title: "Agentes de IA que vendem, qualificam e agendam",
     description:
       "Não é chatbot de FAQ. É um agente treinado com o seu produto, suas objeções e o seu processo de vendas. Responde em segundos, qualifica pelo critério que você define, agenda reunião direto na agenda do SDR e passa o contexto completo da conversa pro CRM. O comercial só entra quando o lead já está quente.",
@@ -65,6 +69,7 @@ const services = [
   {
     icon: Workflow,
     tag: "ManyChat",
+    href: "/automacoes",
     title: "Automações de conversação com ManyChat",
     description:
       "ManyChat transforma o Instagram e o Messenger em canal de aquisição ativo. Lead comenta no post, manda uma palavra-chave ou clica no botão do anúncio — o fluxo começa na hora, captura o contato e distribui para o funil certo. Sem depender de ninguém monitorar a caixa de entrada.",
@@ -143,6 +148,17 @@ export default function Services() {
                   &ldquo;{s.highlight}&rdquo;
                 </p>
               </div>
+
+              {/* Link para a página dedicada do serviço */}
+              {s.href && (
+                <a
+                  href={s.href}
+                  className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-[#d946ef] hover:text-white transition-colors group/link"
+                >
+                  Ver página de {s.tag}
+                  <ArrowRight size={15} className="group-hover/link:translate-x-1 transition-transform" />
+                </a>
+              )}
             </div>
           ))}
         </div>
