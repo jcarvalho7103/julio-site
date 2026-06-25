@@ -9,6 +9,7 @@ const Clients = dynamic(() => import("@/components/Clients"));
 const ServiceProblem = dynamic(() => import("./ServiceProblem"));
 const ServiceDeliverables = dynamic(() => import("./ServiceDeliverables"));
 const ServiceProcess = dynamic(() => import("./ServiceProcess"));
+const About = dynamic(() => import("@/components/About"));
 const ServiceFAQ = dynamic(() => import("./ServiceFAQ"));
 const ServiceCTA = dynamic(() => import("./ServiceCTA"));
 const CapiFooter = dynamic(() => import("@/components/capi/CapiFooter"));
@@ -44,6 +45,7 @@ export default function ServicePage({ data }: { data: ServiceData }) {
       <ServiceProblem data={data} />
       <ServiceDeliverables data={data} />
       <ServiceProcess data={data} />
+      <About />
       <ServiceFAQ faq={data.faq} slug={data.slug} />
       <ServiceCTA data={data} />
       <CapiFooter />

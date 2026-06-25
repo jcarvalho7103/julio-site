@@ -9,6 +9,7 @@ const Clients = dynamic(() => import("@/components/Clients"));
 const CapiProblem = dynamic(() => import("@/components/capi/CapiProblem"));
 const CapiDeliverables = dynamic(() => import("@/components/capi/CapiDeliverables"));
 const CapiProcess = dynamic(() => import("@/components/capi/CapiProcess"));
+const About = dynamic(() => import("@/components/About"));
 const CapiFAQ = dynamic(() => import("@/components/capi/CapiFAQ"));
 const CapiCTA = dynamic(() => import("@/components/capi/CapiCTA"));
 const CapiFooter = dynamic(() => import("@/components/capi/CapiFooter"));
@@ -156,6 +157,7 @@ export default function CapiPage() {
       <CapiProblem />
       <CapiDeliverables />
       <CapiProcess />
+      <About />
       <CapiFAQ />
       <CapiCTA />
       <CapiFooter />
